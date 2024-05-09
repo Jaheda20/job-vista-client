@@ -7,7 +7,7 @@ import { FcGoogle } from "react-icons/fc";
 
 const Login = () => {
     return (
-        <div className="flex flex-col-reverse md:flex-row items-center justify-around py-14 mt-10 bg-purple-100 ">
+        <div className="flex flex-col-reverse md:flex-row items-center justify-center py-6 mt-10 bg-purple-100 ">
             <div className="md:w-1/2 w-4/5 mt-6 md:max-w-md p-8 space-y-3 rounded-xl bg-fuchsia-200">
                 <h1 className="text-2xl font-bold text-center">Login</h1>
                 <form className="space-y-6 ">
@@ -32,11 +32,11 @@ const Login = () => {
                         <p>Login with Google</p>
                     </button>
                 </div>
-                <p className="text-xs text-center sm:px-6 dark:text-gray-600">Don't have an account?
-                    <Link to="/register" className="underline dark:text-gray-800 hover:text-purple-900">Register</Link>
+                <p className="text-xs text-center sm:px-6 dark:text-gray-600">Don't have an account? 
+                    <Link to="/register" className="underline dark:text-gray-800 hover:text-purple-900 font-bold ml-2">Register</Link>
                 </p>
             </div>
-            <div className="w-1/2 md:w-1/3">
+            <div className="w-1/2 ">
                 <Lottie animationData={loginAnimation} loop={true} />
             </div>
         </div>

@@ -23,8 +23,8 @@ const Nav = () => {
                         </ul>
                     </div>
                     <a className="btn btn-ghost gap-0 flex items-end">
-                        <img src={logo} alt="" className="w-16" />
-                        <p className="text-5xl font-semibold  gap-0 text-fuchsia-400">ob<span className="text-fuchsia-600">Vista</span></p>
+                        <img src={logo} alt="" className="w-10 md:w-16" />
+                        <p className="text-2xl md:text-5xl font-semibold  gap-0 text-fuchsia-400">ob<span className="text-fuchsia-600">Vista</span></p>
                     </a>
 
                 </div>
