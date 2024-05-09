@@ -11,10 +11,9 @@ const ErrorPage = () => {
             <div className="w-1/2">
                 <Lottie animationData={errorAnimation} loop={true} />
             </div>
-            <Link to="/" className="mt-10 hover:underline flex items-center gap-2 text-xl hover:text-blue-900 font-bold "> <IoArrowUndoCircleSharp size={30}/>
-                Go back to Home Page</Link>
-
-
+            <Link to="/">
+            <button className=" btn mt-10 hover:underline flex items-center gap-2 text-xl hover:text-blue-900 font-bold bg-blue-700 text-white "> <IoArrowUndoCircleSharp size={30}/>Go back to Home Page</button>
+            </Link>
         </div>
     );
 };
