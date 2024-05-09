@@ -9,7 +9,7 @@ import logo from "/images/logo.png"
 
 const Footer = () => {
     return (
-        <footer className="footer py-20 bg-fuchsia-200 flex flex-col items-center justify-center">
+        <footer className="footer px-5 py-20 bg-pink-100 flex flex-col items-center justify-center">
             <div className="grid grid-cols-2 lg:grid-cols-4 gap-10">
                 <div className="flex flex-col space-y-2">
                     <h6 className="footer-title">Category</h6>
@@ -52,9 +52,9 @@ const Footer = () => {
             <div>
                 <p>Copyright © 2024 - JobVista | info@jobvista.se | 013-562 45 00</p>
             </div>
-            <div className="flex flex-col items-center">
+            <div className="flex items-end gap-0">
                 <img src={logo} alt="" className="w-16" />
-                <p className="text-4xl font-semibold  gap-0 text-purple-600">Job<span className="text-pink-500">Vista</span></p>
+                <p className="text-5xl font-semibold  gap-0 text-fuchsia-400">ob<span className="text-fuchsia-700">Vista</span></p>
             </div>
         </footer>
 
