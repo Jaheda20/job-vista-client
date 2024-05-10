@@ -44,7 +44,7 @@ const Nav = () => {
     }
 
     return (
-        <div className="mx-10 mt-5">
+        <div className="container mx-auto mt-8">
             <div className="navbar bg-base-100">
                 <div className="navbar-start">
                     <div className="dropdown">
@@ -61,11 +61,7 @@ const Nav = () => {
                     </a>
 
                 </div>
-                {/* <div className="navbar-center hidden lg:flex">
-                    <ul className="menu menu-horizontal px-1">
-                        {navTitles}
-                    </ul>
-                </div> */}
+                
                 <div className="navbar-end">
                     <div className="hidden lg:flex">
                         <ul className="menu menu-horizontal px-1">
@@ -73,9 +69,7 @@ const Nav = () => {
                         </ul>
                     </div>
                     {
-                        user ?
-                            // <div className="flex gap-2">
-                                <div>
+                        user ?                             
                                 <details className="dropdown">
                                     <summary className="m-1 btn">
                                         <div className="tooltip flex" data-tip={user?.displayName || 'Unknown User'}>
@@ -84,7 +78,7 @@ const Nav = () => {
                                         </div>
 
                                     </summary>
-                                    <ul className="p-2 shadow menu dropdown-content z-[1] bg-base-100 rounded-box w-48">
+                                    <ul className="p-2 shadow menu dropdown-content z-10 bg-base-100 rounded-box w-48">
                                         <li><a>Item 1</a></li>
                                         <li><button onClick={() => handleLogOut()} className="relative inline-flex items-center justify-center px-6 py-1 text-lg font-medium tracking-tighter text-white bg-gray-800 rounded-md group">
                                             <span className="absolute inset-0 w-full h-full mt-1 ml-1 transition-all duration-300 ease-in-out bg-purple-600 rounded-md group-hover:mt-0 group-hover:ml-0"></span>
@@ -94,19 +88,7 @@ const Nav = () => {
                                         </button></li>
                                     </ul>
                                 </details>
-                                
-                                 {/* <div className="tooltip flex" data-tip={user?.displayName || 'Unknown User'}>
-                                    <img className="w-8 md:w-12 rounded-full" src={user?.photoURL || <FaRegUserCircle />
-                                     } alt="" />
-                                 </div> */}
-
-                                 {/* <button onClick={() => handleLogOut()} className="relative inline-flex items-center justify-center px-6 py-1 text-lg font-medium tracking-tighter text-white bg-gray-800 rounded-md group">
-                                //     <span className="absolute inset-0 w-full h-full mt-1 ml-1 transition-all duration-300 ease-in-out bg-purple-600 rounded-md group-hover:mt-0 group-hover:ml-0"></span>
-                                //     <span className="absolute inset-0 w-full h-full bg-fuchsia-300 rounded-md "></span>
-                                //     <span className="absolute inset-0 w-full h-full transition-all duration-200 ease-in-out delay-100 bg-purple-600 rounded-md opacity-0 group-hover:opacity-100 "></span>
-                                //     <span className="relative text-purple-900 transition-colors duration-200 ease-in-out delay-100 group-hover:text-white">Log out</span>
-                                </button> */}
-                            </div> 
+                            
                             :
                             <Link to="/login" className="relative inline-flex items-center justify-center px-6 py-1 text-lg font-medium tracking-tighter text-white bg-gray-800 rounded-md group">
                                 <span className="absolute inset-0 w-full h-full mt-1 ml-1 transition-all duration-300 ease-in-out bg-purple-600 rounded-md group-hover:mt-0 group-hover:ml-0"></span>

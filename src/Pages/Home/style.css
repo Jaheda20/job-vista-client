@@ -1,0 +1,28 @@
+#banner{
+    height: 100vh;
+    overflow: hidden;
+}
+
+.slide{
+    height: 90vh;
+    width: 90%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.slide1{
+    background-image: url('/images/banner1.jpg');
+}
+.slide2{
+    background-image: url('/images/banner2.jpeg');
+}
+.slide3{
+    background-image: url('/images/banner3.jpeg');
+}
+.slide4{
+    background-image: url('/images/banner4.jpg');
+}
