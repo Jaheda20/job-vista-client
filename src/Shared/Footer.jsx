@@ -10,7 +10,7 @@ import logo from "/images/logo.png"
 const Footer = () => {
     return (
         <footer className="footer px-5 py-20 bg-pink-100 flex flex-col items-center justify-center">
-            <div className="grid grid-cols-2 lg:grid-cols-4 gap-10">
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-10 text-violet-950">
                 <div className="flex flex-col space-y-2">
                     <h6 className="footer-title">Category</h6>
                     <a className="link link-hover">Jobs in IT</a>
@@ -41,8 +41,24 @@ const Footer = () => {
                     <a className="link link-hover">Privacy policy</a>
                     <a className="link link-hover">Cookie policy</a>
                 </div>
+                <div className="flex flex-col">
+                    <h6 className="footer-title">Find us at-</h6>
+                    <p>Kungsgatan 5, Linköping 587 45
+                        <br />
+                        Östergötland, Sweden
+                    </p>
+                    <div className="mt-6">
+                        <p className="font-bold">Opening hours-</p>
+                        <p>Monday-Thursday : 10:00 - 16:00</p>
+                        <p>Fiday: 11:00 - 15:00</p>
+                        <p>Saturday - Sunday : Closed</p>
+                    </div>
+
+
+                </div>
+
             </div>
-            <div className="flex items-center text-fuchsia-900 space-x-2 mt-8">
+            <div className="flex items-center space-x-2 mt-8 text-fuchsia-900">
                 <FaLinkedin size={24} />
                 <FaYoutube size={24} />
                 <FaInstagram size={24} />
@@ -50,12 +66,16 @@ const Footer = () => {
                 <FaSquareReddit size={24} />
             </div>
             <div>
-                <p>Copyright © 2024 - JobVista | info@jobvista.se | 013-562 45 00</p>
+                <p className="text-violet-900">Copyright © 2024 - JobVista |  info@jobvista.se | 013-562 45 00</p>
             </div>
-            <div className="flex items-end gap-0">
+
+            <div className="flex items-end gap-0 mb-0">
                 <img src={logo} alt="" className="w-16" />
                 <p className="text-5xl font-semibold  gap-0 text-fuchsia-400">ob<span className="text-fuchsia-700">Vista</span></p>
             </div>
+
+
+
         </footer>
 
     );
