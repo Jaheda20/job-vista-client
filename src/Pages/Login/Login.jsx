@@ -2,22 +2,60 @@ import { Link } from "react-router-dom";
 import loginAnimation from "../../assets/login.json"
 import Lottie from "lottie-react";
 import { FcGoogle } from "react-icons/fc";
-
+import { useState } from "react";
+import { FaRegEyeSlash } from "react-icons/fa";
+import { FaRegEye } from "react-icons/fa"
+import { useForm } from "react-hook-form";
+import useAuth from "../../Hook/useAuth";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 const Login = () => {
+
+    const {loginUser} = useAuth();
+    const [showPassword, setShowPassword] = useState(false);
+
+    const {
+        register,
+        handleSubmit,
+        reset,
+        formState: { errors },
+    } = useForm();
+
+    const onSubmit = (data) =>{
+        const {email, password} = data;
+        loginUser(email, password)
+        .then(result =>{
+            console.log(result.user)
+            reset();
+        })
+        .catch(error=>{
+            console.error(error)
+            toast.error('Invalid Credentials')
+        })
+    }
+
     return (
         <div className="flex flex-col-reverse md:flex-row items-center justify-center py-6 mt-10 bg-purple-100 ">
             <div className="md:w-1/2 w-4/5 mt-6 md:max-w-md p-8 space-y-3 rounded-xl bg-fuchsia-200">
                 <h1 className="text-2xl font-bold text-center text-black">Login</h1>
-                <form className="space-y-6 ">
+                <form onSubmit={handleSubmit(onSubmit)} className="space-y-6 ">
                     <div className="space-y-1 text-sm">
                         <label htmlFor="username" className="block text-gray-900">Username</label>
-                        <input type="text" name="username" id="username" placeholder="Username" className="w-full px-4 py-3 rounded-md text-black" />
+                        <input type="text" name="username" id="username" placeholder="Username" className="w-full px-4 py-3 rounded-md text-black" {...register("email", { required: true })} />
+                        {errors.email && <span className="text-red-800">This field is required</span>}
                     </div>
-                    <div className="space-y-1 text-sm">
+                    <div className="space-y-1 text-sm relative">
                         <label htmlFor="password" className="block text-gray-900">Password</label>
-                        <input type="password" name="password" id="password" placeholder="Password" className="w-full px-4 py-3 rounded-md dark:border-gray-300 dark:bg-gray-50 dark:text-gray-800 focus:dark:border-violet-600" />
+                        <input type={showPassword ? "text" : "password"} name="password" id="password" placeholder="Password" className="w-full px-4 py-3 rounded-md dark:border-gray-300 dark:bg-gray-50 dark:text-gray-800 focus:dark:border-violet-600" {...register("password", { required: true })} />
+                        {errors.password && <span className="text-red-800">This field is required</span>}
+                        <span onClick ={()=>setShowPassword(!showPassword)} className="absolute top-8 right-4">
+                        {
+                                    showPassword ? <FaRegEye size={18} />
+                                    : <FaRegEyeSlash size={18} />
+                                }
+                        </span>
                         <div className="flex justify-end text-xs text-gray-800">
                             <a rel="noopener noreferrer" href="#">Forgot Password?</a>
                         </div>
@@ -39,6 +77,7 @@ const Login = () => {
             <div className="w-1/2 ">
                 <Lottie animationData={loginAnimation} loop={true} />
             </div>
+            <ToastContainer />
         </div>
     );
 };
