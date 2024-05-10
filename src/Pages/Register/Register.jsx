@@ -58,7 +58,7 @@ const Register = () => {
                 <form onSubmit={handleSubmit(onSubmit)} className="space-y-6 ">
                     <div className="space-y-1 text-sm">
                         <label htmlFor="name" className="block text-gray-900">User Name</label>
-                        <input type="name" name="name" id="name" placeholder="Name" className="w-full px-4 py-3 rounded-md dark:border-gray-300 dark:text-gray-800 focus:dark:border-violet-600" {...register("name", { required: true })} />
+                        <input type="name" name="name" id="name" placeholder="Name" className="w-full px-4 py-3 rounded-md dark:border-gray-300 dark:text-gray-800 dark:bg-gray-50 focus:dark:border-violet-600" {...register("name", { required: true })} />
                         {errors.name && <span className="text-red-800">This field is required</span>}
                     </div>
                     <div className="space-y-1 text-sm">
