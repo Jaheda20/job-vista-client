@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import loginAnimation from "../../assets/login.json"
 import Lottie from "lottie-react";
 import { FcGoogle } from "react-icons/fc";
@@ -9,12 +9,14 @@ import { useForm } from "react-hook-form";
 import useAuth from "../../Hook/useAuth";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import Swal from "sweetalert2";
 
 
 const Login = () => {
 
-    const {loginUser} = useAuth();
+    const { loginUser, googleLogin, setLoading } = useAuth();
     const [showPassword, setShowPassword] = useState(false);
+    const navigate = useNavigate();
 
     const {
         register,
@@ -23,17 +25,48 @@ const Login = () => {
         formState: { errors },
     } = useForm();
 
-    const onSubmit = (data) =>{
-        const {email, password} = data;
+    const onSubmit = (data) => {
+        const { email, password } = data;
         loginUser(email, password)
-        .then(result =>{
-            console.log(result.user)
-            reset();
-        })
-        .catch(error=>{
-            console.error(error)
-            toast.error('Invalid Credentials')
-        })
+            .then(result => {
+                console.log(result.user)
+                Swal.fire({
+                    position: "center",
+                    icon: "success",
+                    title: "Successfully logged in",
+                    showConfirmButton: false,
+                    timer: 1500
+                  });
+                navigate (location?.state || '/')
+                reset();
+            })
+            .catch(error => {
+                console.error(error)
+                toast.error('Invalid Credentials')
+            })
+    }
+
+    const handleGoogleLogin = () => {
+        googleLogin()
+            .then(result => {
+                console.log(result.user)
+                if(result.user){
+                    setLoading(false)
+                    Swal.fire({
+                        position: "center",
+                        icon: "success",
+                        title: "Successfully logged in",
+                        showConfirmButton: false,
+                        timer: 1500
+                      });
+                    navigate (location?.state || '/')
+                    reset();
+                }
+            })
+            .catch(error => {
+                console.log(error)
+            })
+
     }
 
     return (
@@ -50,11 +83,11 @@ const Login = () => {
                         <label htmlFor="password" className="block text-gray-900">Password</label>
                         <input type={showPassword ? "text" : "password"} name="password" id="password" placeholder="Password" className="w-full px-4 py-3 rounded-md dark:border-gray-300 dark:bg-gray-50 dark:text-gray-800 focus:dark:border-violet-600" {...register("password", { required: true })} />
                         {errors.password && <span className="text-red-800">This field is required</span>}
-                        <span onClick ={()=>setShowPassword(!showPassword)} className="absolute top-8 right-4">
-                        {
-                                    showPassword ? <FaRegEye size={18} />
+                        <span onClick={() => setShowPassword(!showPassword)} className="absolute top-8 right-4">
+                            {
+                                showPassword ? <FaRegEye size={18} />
                                     : <FaRegEyeSlash size={18} />
-                                }
+                            }
                         </span>
                         <div className="flex justify-end text-xs text-gray-800">
                             <a rel="noopener noreferrer" href="#">Forgot Password?</a>
@@ -62,15 +95,15 @@ const Login = () => {
                     </div>
                     <button className="block w-full p-3 text-center rounded-sm text-white font-semibold bg-purple-600">Sign in</button>
                 </form>
-                
+
                 <div className="flex justify-center space-x-4">
-                    <button aria-label="Login with Google" type="button" className="flex items-center justify-center w-full p-4 space-x-4 border rounded-md focus:ring-2 focus:ring-offset-1 dark:border-gray-600 focus:dark:ring-violet-600">
-                    <FcGoogle size={20} />
+                    <button onClick={() => handleGoogleLogin()} aria-label="Login with Google" type="button" className="flex items-center justify-center w-full p-4 space-x-4 border rounded-md focus:ring-2 focus:ring-offset-1 dark:border-gray-600 focus:dark:ring-violet-600">
+                        <FcGoogle size={20} />
 
                         <p className="text-black">Login with Google</p>
                     </button>
                 </div>
-                <p className="text-xs text-center sm:px-6 text-gray-600">Don't have an account? 
+                <p className="text-xs text-center sm:px-6 text-gray-600">Don't have an account?
                     <Link to="/register" className="underline text-gray-800 hover:text-purple-900 font-bold ml-2">Register</Link>
                 </p>
             </div>

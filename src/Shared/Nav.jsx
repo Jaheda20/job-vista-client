@@ -1,29 +1,47 @@
 import { Link, NavLink } from "react-router-dom";
 import logo from "/images/logo.png"
 import { useEffect, useState } from "react";
+import useAuth from "../Hook/useAuth";
+import Swal from "sweetalert2";
+import userPhoto from "/images/user.png"
+
 
 
 const Nav = () => {
-
+    const { user, logOutUser } = useAuth();
     const [theme, setTheme] = useState('light')
     const navTitles = <>
         <li><NavLink className={({ isActive }) => isActive ? 'bg-fuchsia-100 dark:text-purple-900 font-bold' : "font-bold"} to="/">Home</NavLink></li>
     </>
 
-    const handleToggle = e =>{
-        if(e.target.checked){
+    const handleToggle = e => {
+        if (e.target.checked) {
             setTheme('dark')
         }
-        else{
+        else {
             setTheme('light')
         }
     }
 
-    useEffect(()=>{
+    useEffect(() => {
         localStorage.setItem('theme', theme)
         const localTheme = localStorage.getItem('theme');
         document.querySelector('html').setAttribute('data-theme', localTheme)
     }, [theme])
+
+    const handleLogOut = () => {
+        logOutUser()
+            .then((result) => {
+                console.log(result)
+                Swal.fire({
+                    position: "center",
+                    icon: "success",
+                    title: "Successfully logged out",
+                    showConfirmButton: false,
+                    timer: 1500
+                });
+            })
+    }
 
     return (
         <div className="mx-10 mt-5">
@@ -41,7 +59,7 @@ const Nav = () => {
                         <img src={logo} alt="" className="w-10 md:w-16" />
                         <p className="text-2xl md:text-5xl font-semibold  gap-0 text-fuchsia-400">ob<span className="text-fuchsia-600">Vista</span></p>
                     </a>
-                    
+
                 </div>
                 {/* <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal px-1">
@@ -54,14 +72,55 @@ const Nav = () => {
                             {navTitles}
                         </ul>
                     </div>
-                    
-                    <Link to="/login" className="relative inline-flex items-center justify-center px-6 py-1 text-lg font-medium tracking-tighter text-white bg-gray-800 rounded-md group">
-                        <span className="absolute inset-0 w-full h-full mt-1 ml-1 transition-all duration-300 ease-in-out bg-purple-600 rounded-md group-hover:mt-0 group-hover:ml-0"></span>
-                        <span className="absolute inset-0 w-full h-full bg-fuchsia-300 rounded-md "></span>
-                        <span className="absolute inset-0 w-full h-full transition-all duration-200 ease-in-out delay-100 bg-purple-600 rounded-md opacity-0 group-hover:opacity-100 "></span>
-                        <span className="relative text-purple-900 transition-colors duration-200 ease-in-out delay-100 group-hover:text-white">Login</span>
+                    {
+                        user ?
+                            // <div className="flex gap-2">
+                                <div>
+                                <details className="dropdown">
+                                    <summary className="m-1 btn">
+                                        <div className="tooltip flex" data-tip={user?.displayName || 'Unknown User'}>
+                                            <img className="w-8 md:w-12 rounded-full" src={user?.photoURL || userPhoto
+                                            } alt="" />
+                                        </div>
 
-                    </Link>
+                                    </summary>
+                                    <ul className="p-2 shadow menu dropdown-content z-[1] bg-base-100 rounded-box w-48">
+                                        <li><a>Item 1</a></li>
+                                        <li><button onClick={() => handleLogOut()} className="relative inline-flex items-center justify-center px-6 py-1 text-lg font-medium tracking-tighter text-white bg-gray-800 rounded-md group">
+                                            <span className="absolute inset-0 w-full h-full mt-1 ml-1 transition-all duration-300 ease-in-out bg-purple-600 rounded-md group-hover:mt-0 group-hover:ml-0"></span>
+                                            <span className="absolute inset-0 w-full h-full bg-fuchsia-300 rounded-md "></span>
+                                            <span className="absolute inset-0 w-full h-full transition-all duration-200 ease-in-out delay-100 bg-purple-600 rounded-md opacity-0 group-hover:opacity-100 "></span>
+                                            <span className="relative text-purple-900 transition-colors duration-200 ease-in-out delay-100 group-hover:text-white">Log out</span>
+                                        </button></li>
+                                    </ul>
+                                </details>
+                                
+                                 {/* <div className="tooltip flex" data-tip={user?.displayName || 'Unknown User'}>
+                                    <img className="w-8 md:w-12 rounded-full" src={user?.photoURL || <FaRegUserCircle />
+                                     } alt="" />
+                                 </div> */}
+
+                                 {/* <button onClick={() => handleLogOut()} className="relative inline-flex items-center justify-center px-6 py-1 text-lg font-medium tracking-tighter text-white bg-gray-800 rounded-md group">
+                                //     <span className="absolute inset-0 w-full h-full mt-1 ml-1 transition-all duration-300 ease-in-out bg-purple-600 rounded-md group-hover:mt-0 group-hover:ml-0"></span>
+                                //     <span className="absolute inset-0 w-full h-full bg-fuchsia-300 rounded-md "></span>
+                                //     <span className="absolute inset-0 w-full h-full transition-all duration-200 ease-in-out delay-100 bg-purple-600 rounded-md opacity-0 group-hover:opacity-100 "></span>
+                                //     <span className="relative text-purple-900 transition-colors duration-200 ease-in-out delay-100 group-hover:text-white">Log out</span>
+                                </button> */}
+                            </div> 
+                            :
+                            <Link to="/login" className="relative inline-flex items-center justify-center px-6 py-1 text-lg font-medium tracking-tighter text-white bg-gray-800 rounded-md group">
+                                <span className="absolute inset-0 w-full h-full mt-1 ml-1 transition-all duration-300 ease-in-out bg-purple-600 rounded-md group-hover:mt-0 group-hover:ml-0"></span>
+                                <span className="absolute inset-0 w-full h-full bg-fuchsia-300 rounded-md "></span>
+                                <span className="absolute inset-0 w-full h-full transition-all duration-200 ease-in-out delay-100 bg-purple-600 rounded-md opacity-0 group-hover:opacity-100 "></span>
+                                <span className="relative text-purple-900 transition-colors duration-200 ease-in-out delay-100 group-hover:text-white">Login</span>
+                            </Link>
+
+                    }
+
+
+
+
+
                     <label className="swap swap-rotate ml-4">
 
                         {/* this hidden checkbox controls the state */}
