@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const JobCards = ({ job }) => {
 
-    const {_id, category, name, job_title, posting_date, deadline, salary_range, applicants_number} = job;
+    const {_id, category, name, job_title, posting_date, deadline, min_salary, max_salary, applicants_number} = job;
 
     return (
         <div>
@@ -17,7 +17,7 @@ const JobCards = ({ job }) => {
                     <h1 className="mt-2 text-lg font-semibold text-gray-800 dark:text-white">{job_title}</h1>
                     <p className="mt-1 text-sm text-gray-600 dark:text-gray-300">{name}</p>
                     <div className="flex mt-2">
-                        <p className="px-3 py-1 text-xs text-violet-800 bg-fuchsia-200 rounded-full dark:bg-blue-300 dark:text-blue-900">{salary_range}</p>
+                        <p className="px-3 py-1 text-xs text-violet-800 bg-fuchsia-200 rounded-full dark:bg-blue-300 dark:text-blue-900">Salary: ${min_salary} - ${max_salary}</p>
                         <p className="px-3 py-1 ml-2 text-xs text-violet-800 bg-fuchsia-200 rounded-full dark:bg-blue-300 dark:text-blue-900">{category}</p>
 
                     </div>

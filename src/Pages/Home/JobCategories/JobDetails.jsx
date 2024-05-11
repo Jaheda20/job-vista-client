@@ -4,7 +4,7 @@ import { useLoaderData } from "react-router-dom";
 const JobDetails = () => {
 
     const job = useLoaderData();
-    const { image, name, job_title, job_description, applicants_number, salary_range, company_description, deadline, skills } = job;
+    const { image, name, job_title, job_description, applicants_number, min_salary, max_salary, company_description, deadline, skills } = job;
     const skillsArray = JSON.parse(skills)
 
 
@@ -37,7 +37,7 @@ const JobDetails = () => {
 
                         </div>
 
-                        <p className="mt-4 text-lg font-medium text-blue-600 uppercase dark:text-blue-400">Salary: {salary_range}</p>
+                        <p className="mt-4 text-lg font-medium text-blue-600 uppercase dark:text-blue-400">Salary: ${min_salary} - ${max_salary}</p>
                         <p className="mt-2 text-sm text-gray-600 dark:text-gray-400"><b>Company Background: </b><span>{company_description}</span></p>
                     </div>
 
@@ -54,7 +54,7 @@ const JobDetails = () => {
                 <div className="modal-box w-11/12 max-w-4xl">
                     <h3 className="font-bold text-lg text-center">Submit Your Application</h3>
                     <div className="card shrink-0 w-full max-w-5xl border shadow-2xl bg-base-100">
-                        <form className="card-body">
+                        <form className="card-body" method="dialog">
                             <div className="flex w-full gap-3">
                                 <div className="form-control w-1/2">
                                     <label className="label">
@@ -99,17 +99,17 @@ const JobDetails = () => {
                                     <label className="label flex items-center justify-center">
                                     <input type="checkbox" className="checkbox-input" required />
                                         <span className="checkbox-text ml-2">I accept terms and Conditions</span>
-                                    </label>
-                                    
+                                    </label>                                   
                                     
                                 </div>
-
 
                             <div className="form-control mt-6">
                                 <button className="btn btn-primary">Submit</button>
                             </div>
+                            <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
                         </form>
                     </div>
+                    
                 </div>
             </dialog>
 
