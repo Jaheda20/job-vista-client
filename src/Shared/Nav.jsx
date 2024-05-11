@@ -13,6 +13,7 @@ const Nav = () => {
     const [theme, setTheme] = useState('light');
     const navTitles = <>
         <li><NavLink className={({ isActive }) => isActive ? 'bg-fuchsia-100 dark:text-purple-900 font-bold' : "font-bold"} to="/">Home</NavLink></li>
+        <li><NavLink className={({ isActive }) => isActive ? 'bg-fuchsia-100 dark:text-purple-900 font-bold' : "font-bold"} to="/allJobs">All Jobs</NavLink></li>
         <li><NavLink className={({ isActive }) => isActive ? 'bg-fuchsia-100 dark:text-purple-900 font-bold' : "font-bold"} to="/blog">Blog</NavLink></li>
     </>
 
