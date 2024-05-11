@@ -34,8 +34,8 @@ const JobCategories = () => {
                     </div>
 
                     <TabPanel>
-                        <div className="grid grid-cols-1 md:grid-cols-3 mt-10 px-2">
-                            {jobs.filter(j => j.category === 'permanent').
+                        <div className="grid grid-cols-1 md:grid-cols-3 mt-10 px-2 gap-4">
+                            {jobs.filter(j => j.category === 'Permanent').
                                 map(job => <JobCards key={job._id} job={job}>
 
                                 </JobCards>)}
@@ -45,8 +45,8 @@ const JobCategories = () => {
                     </TabPanel>
 
                     <TabPanel>
-                        <div className="grid grid-cols-1 md:grid-cols-3 mt-10 px-2">
-                            {jobs.filter(j => j.category === 'temporary').
+                        <div className="grid grid-cols-1 md:grid-cols-3 mt-10 px-2 gap-4">
+                            {jobs.filter(j => j.category === 'Temporary').
                                 map(job => <JobCards key={job._id} job={job}>
 
                                 </JobCards>)}
@@ -54,8 +54,8 @@ const JobCategories = () => {
                     </TabPanel>
 
                     <TabPanel>
-                    <div className="grid grid-cols-1 md:grid-cols-3 mt-10 px-2">
-                            {jobs.filter(j => j.category === 'part-time').
+                    <div className="grid grid-cols-1 md:grid-cols-3 mt-10 px-2 gap-4">
+                            {jobs.filter(j => j.category === 'Part-time').
                                 map(job => <JobCards key={job._id} job={job}>
 
                                 </JobCards>)}
@@ -63,8 +63,8 @@ const JobCategories = () => {
                     </TabPanel>
 
                     <TabPanel>
-                    <div className="grid grid-cols-1 md:grid-cols-3 mt-10 px-2">
-                            {jobs.filter(j => j.category === 'on-site').
+                    <div className="grid grid-cols-1 md:grid-cols-3 mt-10 px-2 gap-4">
+                            {jobs.filter(j => j.category === 'On-site').
                                 map(job => <JobCards key={job._id} job={job}>
 
                                 </JobCards>)}
@@ -72,8 +72,8 @@ const JobCategories = () => {
                     </TabPanel>
 
                     <TabPanel>
-                    <div className="grid grid-cols-1 md:grid-cols-3 mt-10 px-2">
-                            {jobs.filter(j => j.category === 'remote').
+                    <div className="grid grid-cols-1 md:grid-cols-3 mt-10 px-2 gap-4">
+                            {jobs.filter(j => j.category === 'Remote').
                                 map(job => <JobCards key={job._id} job={job}>
 
                                 </JobCards>)}
@@ -81,8 +81,8 @@ const JobCategories = () => {
                     </TabPanel>
 
                     <TabPanel>
-                    <div className="grid grid-cols-1 md:grid-cols-3 mt-10 px-2">
-                            {jobs.filter(j => j.category === 'hybrid').
+                    <div className="grid grid-cols-1 md:grid-cols-3 mt-10 px-2 gap-4">
+                            {jobs.filter(j => j.category === 'Hybrid').
                                 map(job => <JobCards key={job._id} job={job}>
 
                                 </JobCards>)}
