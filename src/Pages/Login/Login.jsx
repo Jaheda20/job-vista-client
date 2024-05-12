@@ -1,4 +1,4 @@
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import loginAnimation from "../../assets/login.json"
 import Lottie from "lottie-react";
 import { FcGoogle } from "react-icons/fc";
@@ -17,6 +17,7 @@ const Login = () => {
     const { loginUser, googleLogin, setLoading } = useAuth();
     const [showPassword, setShowPassword] = useState(false);
     const navigate = useNavigate();
+    const location = useLocation();
 
     const {
         register,
@@ -103,7 +104,7 @@ const Login = () => {
                         <p className="text-black">Login with Google</p>
                     </button>
                 </div>
-                <p className="text-xs text-center sm:px-6 text-gray-600">Don't have an account?
+                <p className="text-xs text-center sm:px-6 text-gray-600">Do not have an account?
                     <Link to="/register" className="underline text-gray-800 hover:text-purple-900 font-bold ml-2">Register</Link>
                 </p>
             </div>

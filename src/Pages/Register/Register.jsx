@@ -1,6 +1,6 @@
 import Lottie from "lottie-react";
 import registerAnimation from "../../assets/register.json"
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { FaRegEyeSlash } from "react-icons/fa";
 import { FaRegEye } from "react-icons/fa";
@@ -12,6 +12,8 @@ import useAuth from "../../Hook/useAuth";
 const Register = () => {
     const { createUser } = useAuth();
     const [showPassword, setShowPassword] = useState(false);
+    const location = useLocation();
+    const navigate = useNavigate();
 
     const {
         register,
@@ -36,7 +38,8 @@ const Register = () => {
         }
         createUser(email, password)
             .then(result => {
-                console.log(result.user)
+                console.log(result.user);
+                navigate (location?.state || '/')
                 reset()
             })
             

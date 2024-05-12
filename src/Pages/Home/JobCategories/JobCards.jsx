@@ -3,22 +3,22 @@ import { Link } from "react-router-dom";
 
 const JobCards = ({ job }) => {
 
-    const {_id, category, name, job_title, posting_date, deadline, min_salary, max_salary, applicants_number} = job;
+    const {_id, photo, jobTitle, company, jobCategory, minSalary, maxSalary, publishedDate, deadline, recruiter, applicants_count} = job;
 
     return (
         <div>
             <div className="w-full max-w-sm px-4 py-3 bg-fuchsia-50 border rounded-md shadow-xl dark:bg-gray-800">
                 <div className="flex items-center justify-between">
-                    <span className="text-sm font-light text-gray-800 dark:text-gray-400">Deadline: {deadline}</span>
-                    <span className="px-3 py-1 text-xs text-indigo-800 uppercase bg-fuchsia-300 rounded-full dark:bg-blue-300 dark:text-blue-900">No. of Applicants: {applicants_number}</span>
+                    <span className="text-sm font-light text-gray-800 dark:text-gray-400">Deadline: {new Date(deadline).toLocaleDateString()} </span>
+                    <span className="px-3 py-1 text-xs text-indigo-800 uppercase bg-fuchsia-300 rounded-full dark:bg-blue-300 dark:text-blue-900">No. of Applicants: {applicants_count}</span>
                 </div>
 
                 <div>
-                    <h1 className="mt-2 text-lg font-semibold text-gray-800 dark:text-white">{job_title}</h1>
-                    <p className="mt-1 text-sm text-gray-600 dark:text-gray-300">{name}</p>
+                    <h1 className="mt-2 text-lg font-semibold text-gray-800 dark:text-white">{jobTitle}</h1>
+                    <p className="mt-1 text-sm text-gray-600 dark:text-gray-300">{company}</p>
                     <div className="flex mt-2">
-                        <p className="px-3 py-1 text-xs text-violet-800 bg-fuchsia-200 rounded-full dark:bg-blue-300 dark:text-blue-900">Salary: ${min_salary} - ${max_salary}</p>
-                        <p className="px-3 py-1 ml-2 text-xs text-violet-800 bg-fuchsia-200 rounded-full dark:bg-blue-300 dark:text-blue-900">{category}</p>
+                        <p className="px-3 py-1 text-xs text-violet-800 bg-fuchsia-200 rounded-full dark:bg-blue-300 dark:text-blue-900">Salary: ${minSalary} - ${maxSalary}</p>
+                        <p className="px-3 py-1 ml-2 text-xs text-violet-800 bg-fuchsia-200 rounded-full dark:bg-blue-300 dark:text-blue-900">{jobCategory}</p>
 
                     </div>
 
@@ -29,11 +29,11 @@ const JobCards = ({ job }) => {
                     <div className="flex flex-col items-start mt-2 text-gray-700 dark:text-gray-200">
                         <div className="flex">
                             <span className="text-gray-500 text-sm">Published: </span>
-                            <p className="mx-2 text-gray-500 text-sm cursor-pointer dark:text-blue-400 hover:underline">{posting_date}</p>
+                            <p className="mx-2 text-gray-500 text-sm cursor-pointer dark:text-blue-400 hover:underline">{publishedDate}</p>
                         </div>
                         <div>
-                            <span>Contact Person:</span>
-                            <a className="mx-2 text-indigo-700 cursor-pointer dark:text-blue-400 hover:underline" tabIndex="0" role="link">Jaheda Sultana</a>
+                            <span>Contact:</span>
+                            <a className="mx-2 text-indigo-700 cursor-pointer dark:text-blue-400 hover:underline" tabIndex="0" role="link">{recruiter?.email}</a>
 
                         </div>
                         <div className="flex my-4 w-full justify-end">
