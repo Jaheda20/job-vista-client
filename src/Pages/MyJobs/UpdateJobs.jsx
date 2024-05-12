@@ -13,7 +13,12 @@ const UpdateJobs = () => {
     const { user } = useAuth();
     const { id } = useParams();
     
-    const [startDate, setStartDate] = useState(new Date())
+    const {photo, jobTitle, company, jobCategory,
+        minSalary, maxSalary,
+        jobDescription,
+        publishedDate, deadline} = job || {};
+
+    const [startDate, setStartDate] = useState(new Date(deadline) || new Date())
 
     const handleUpdate = async (e) => {
         e.preventDefault();
@@ -46,7 +51,7 @@ const UpdateJobs = () => {
                 job
             )
             console.log(data)
-            if (data?.modifiedCount) {
+            if (data.modifiedCount) {
                 Swal.fire({
                     position: "center",
                     icon: "success",
@@ -76,13 +81,13 @@ const UpdateJobs = () => {
                             <label className="label">
                                 <span className="label-text">Photo URL</span>
                             </label>
-                            <input type="text" name="photo" defaultValue={job.photo} placeholder="Photo url" className="input input-bordered w-full" required />
+                            <input type="text" name="photo" defaultValue={photo} placeholder="Photo url" className="input input-bordered w-full" required />
                         </div>
                         <div className="form-control">
                             <label className="label">
                                 <span className="label-text">Company</span>
                             </label>
-                            <input type="text" name="company" defaultValue={job.company} placeholder="Company name" className="input input-bordered w-full" required />
+                            <input type="text" name="company" defaultValue={company} placeholder="Company name" className="input input-bordered w-full" required />
                         </div>
 
                         <div className="flex w-full gap-3">
@@ -90,13 +95,13 @@ const UpdateJobs = () => {
                                 <label className="label">
                                     <span className="label-text">Job Title</span>
                                 </label>
-                                <input type="text" name="title" defaultValue={job.jobTitle} placeholder="Job title" className="input input-bordered w-full" required />
+                                <input type="text" name="title" defaultValue={jobTitle}placeholder="Job title" className="input input-bordered w-full" required />
                             </div>
                             <div className='flex flex-col gap-2 '>
                                 <label className="label">
                                     <span className="label-text">Job Category</span>
                                 </label>
-                                <select name='category' defaultValue={job.jobCategory} id='category'
+                                <select name='category' defaultValue={jobCategory} id='category'
                                     className='border px-4 py-2 rounded-md'
                                 >
                                     <option value='Permanent'>Permanent</option>
@@ -114,7 +119,7 @@ const UpdateJobs = () => {
                                 <label className="label">
                                     <span className="label-text">Minimum Salary</span>
                                 </label>
-                                <input type="number" name="min_salary"defaultValue={job.minSalary} placeholder="Minimum Salary" className="input input-bordered w-full" required />
+                                <input type="number" name="min_salary"defaultValue={minSalary} placeholder="Minimum Salary" className="input input-bordered w-full" required />
 
                             </div>
                             <div className="form-control w-1/2">
@@ -122,7 +127,7 @@ const UpdateJobs = () => {
                                     <span className="label-text">Maximum Salary</span>
                                 </label>
                                 <input type="number" name="max_salary"
-                                defaultValue={job.maxSalary}
+                                defaultValue={maxSalary}
                                 placeholder="Maximum Salary" className="input input-bordered w-full" required />
                             </div>
                         </div>
@@ -130,14 +135,14 @@ const UpdateJobs = () => {
                             <label className="label">
                                 <span className="label-text">Job Description</span>
                             </label>
-                            <textarea className="textarea textarea-bordered h-52" name="description" defaultValue={job.jobDescription} placeholder="Description"></textarea>
+                            <textarea className="textarea textarea-bordered h-52" name="description" defaultValue={jobDescription} placeholder="Description"></textarea>
                         </div>
                         <div className="flex w-full gap-3">
                             <div className="form-control w-1/2">
                                 <label className="label">
                                     <span className="label-text">Posted on</span>
                                 </label>
-                                <input type="date" name="publishedDate" defaultValue={job.publishedDate}placeholder="Posted Date" className="input input-bordered w-full" required />
+                                <input type="date" name="publishedDate" defaultValue={publishedDate}placeholder="Posted Date" className="input input-bordered w-full" required />
 
                             </div>
                             <div className="form-control w-1/2 flex flex-col items-start">

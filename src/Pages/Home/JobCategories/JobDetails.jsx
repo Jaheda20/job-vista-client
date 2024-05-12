@@ -29,11 +29,13 @@ const JobDetails = () => {
         const form = e.target;
         const name = form.name.value;
         const jobId = _id;
+        const job_title = jobTitle;
+        const companyName = company;
         const appliedJobCategory = jobCategory;
         const email = user?.email;
         const resume = form.resume.files;
         const applicants = applicants_count;
-        const applicationData = { name, jobId, email, deadLine, currentDate, appliedJobCategory, resume, applicants }
+        const applicationData = { name, jobId, companyName, job_title, email, deadLine, currentDate, appliedJobCategory, resume, applicants }
         console.log(applicationData)
 
         try {

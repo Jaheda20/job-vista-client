@@ -16,12 +16,8 @@ const Nav = () => {
         <li><NavLink className={({ isActive }) => isActive ? 'bg-fuchsia-100 dark:text-purple-900 font-bold' : "font-bold"} to="/allJobs">All Jobs</NavLink></li>
         <li><NavLink className={({ isActive }) => isActive ? 'bg-fuchsia-100 dark:text-purple-900 font-bold' : "font-bold"} to="/addJob">Add Jobs</NavLink></li>
         <li><NavLink className={({ isActive }) => isActive ? 'bg-fuchsia-100 dark:text-purple-900 font-bold' : "font-bold"} to="/blog">Blog</NavLink></li>
-        {
-            user? <li><NavLink className={({ isActive }) => isActive ? 'bg-fuchsia-100 dark:text-purple-900 font-bold' : "font-bold"} to="/myJobs">My Jobs</NavLink></li>
-            :
-            ""
-        }
         
+
     </>
 
     const handleToggle = e => {
@@ -66,15 +62,15 @@ const Nav = () => {
                         </ul>
                     </div>
                     <div className="flex items-center">
-                    <a className="btn btn-ghost gap-0 flex items-end">
-                        <img src={logo} alt="" className="w-10 md:w-12" />
-                        <p className="text-3xl font-semibold  gap-0 text-fuchsia-400">ob<span className="text-fuchsia-600">Vista</span></p>
-                    </a>
-                    <div className="hidden lg:flex">
-                        <ul className="menu menu-horizontal px-1">
-                            {navTitles}
-                        </ul>
-                    </div>
+                        <a className="btn btn-ghost gap-0 flex items-end">
+                            <img src={logo} alt="" className="w-10 md:w-12" />
+                            <p className="text-3xl font-semibold  gap-0 text-fuchsia-400">ob<span className="text-fuchsia-600">Vista</span></p>
+                        </a>
+                        <div className="hidden lg:flex">
+                            <ul className="menu menu-horizontal px-1">
+                                {navTitles}
+                            </ul>
+                        </div>
                     </div>
 
                 </div>
@@ -92,7 +88,8 @@ const Nav = () => {
 
                                     </summary>
                                     <ul className="p-2 shadow menu dropdown-content z-10 bg-base-100 rounded-box w-48">
-                                        <li><a>Item 1</a></li>
+                                    <li><Link className={({ isActive }) => isActive ? 'bg-fuchsia-100 dark:text-purple-900 font-bold' : "font-bold"} to="/myJobs">My Jobs</Link></li>
+                                    <li><Link className={({ isActive }) => isActive ? 'bg-fuchsia-100 dark:text-purple-900 font-bold' : "font-bold"} to="/appliedJobs">Applied Jobs</Link></li>
                                         <li><p onClick={() => handleLogOut()}> <TbLogout />
                                             Log out
                                         </p> </li>
