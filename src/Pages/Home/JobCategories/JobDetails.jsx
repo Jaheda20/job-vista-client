@@ -2,6 +2,7 @@ import { useLoaderData } from "react-router-dom";
 import useAuth from "../../../Hook/useAuth";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import axios from "axios";
 
 
 
@@ -9,7 +10,7 @@ const JobDetails = () => {
     const { user } = useAuth();
     const job = useLoaderData();
     const { _id, photo, jobTitle, company,
-        minSalary, maxSalary,
+        jobCategory, minSalary, maxSalary,
         jobDescription,
         deadline, recruiter,
         applicants_count } = job;
@@ -22,14 +23,29 @@ const JobDetails = () => {
         const form = e.target;
         const name = form.name.value;
         const jobId = _id;
+        const appliedJobCategory = jobCategory;
         const email = user?.email;
         const deadLine = new Date(deadline);
         const currentDate = new Date();
-        const applicationData = { name, jobId, email, deadLine, currentDate }
+        const resume = form.resume.files;
+        const applicants = applicants_count;
+        const applicationData = { name, jobId, email, deadLine, currentDate, appliedJobCategory, resume, applicants }
         console.log(applicationData)
         if(currentDate > deadline){
             return toast.error('Application deadline is over')
         }
+        try {
+            const { data } = await axios.post(
+              `${import.meta.env.VITE_API_URL}/application`,
+              applicationData
+            )
+            console.log(data)
+            
+            
+          } catch (err) {
+            console.log(err)
+          }
+
 
     }
 
@@ -86,31 +102,14 @@ const JobDetails = () => {
                                 </div>
                             </div>
 
-                            {/* <div className="flex w-full gap-3">
-                                <div className="form-control w-1/2">
-                                    <label className="label">
-                                        <span className="label-text">Password</span>
-                                    </label>
-                                    <input type="password" name="password" placeholder="Password" className="input input-bordered w-full" required />
-                                    <label className="label">
-                                        <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
-                                    </label>
-                                </div>
-                                <div className="form-control w-1/2">
-                                    <label className="label">
-                                        <span className="label-text">Confirm Password</span>
-                                    </label>
-                                    <input type="password" name="password" placeholder="Password" className="input input-bordered w-full" required />
-                                </div>
-                            </div> */}
 
                             <div className="form-control">
                                 <label className="label">
                                     <span className="label-text">Attach Resume</span>
                                 </label>
-                                <input type="file" required />
-
+                                <input type="file" name="resume" required />
                             </div>
+
                             <div className="form-control">
                                 <label className="label flex items-center justify-center">
                                     <input type="checkbox" className="checkbox-input" required />
@@ -124,9 +123,9 @@ const JobDetails = () => {
                             </div>
                             
                         </form>
-                        <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
+                        
                     </div>
-
+                    <button onClick={() => document.getElementById("my_modal_4").close()} className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2" type="button">✕</button>
                 </div>
             </dialog>
             <ToastContainer />

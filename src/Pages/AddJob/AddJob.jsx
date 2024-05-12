@@ -143,7 +143,7 @@ const AddJob = () => {
                             <label className="label">
                                 <span className="label-text">Number of Applicants</span>
                             </label>
-                            <input type="number" name="applicants_number" placeholder="Number of Applicants" className="input input-bordered w-full" required />
+                            <input type="number" name="applicants_number" placeholder="Number of Applicants" className="input input-bordered w-full" />
                         </div>
                         <div className="form-control w-1/2">
                             <label className="label">
