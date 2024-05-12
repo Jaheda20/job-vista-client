@@ -67,7 +67,7 @@ const UpdateJobs = () => {
 
     return (
         <div>
-            <h1>{job._id}</h1>
+            
             <div className="container mx-auto my-10 flex flex-col items-center justify-center text-center">
                 <h1 className="text-4xl">Update Job Data</h1>
                 <div className="card mt-8 shrink-0 w-full max-w-4xl shadow-2xl bg-base-100 border border-violet-600 hover:bg-fuchsia-100">
@@ -168,7 +168,7 @@ const UpdateJobs = () => {
                                 <span className="absolute inset-0 w-full h-full mt-1 ml-1 transition-all duration-300 ease-in-out bg-purple-600 rounded-md group-hover:mt-0 group-hover:ml-0"></span>
                                 <span className="absolute inset-0 w-full h-full bg-fuchsia-300 rounded-md "></span>
                                 <span className="absolute inset-0 w-full h-full transition-all duration-200 ease-in-out delay-100 bg-purple-600 rounded-md opacity-0 group-hover:opacity-100 "></span>
-                                <span className="relative text-purple-900 transition-colors duration-200 ease-in-out delay-100 group-hover:text-white">Add</span></button>
+                                <span className="relative text-purple-900 transition-colors duration-200 ease-in-out delay-100 group-hover:text-white">Save</span></button>
                         </div>
 
                     </form>
