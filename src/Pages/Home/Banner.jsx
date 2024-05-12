@@ -19,7 +19,7 @@ const Banner = () => {
                     <div className='slide slide1 flex flex-col gap-4 item-center justify-center relative '>
                         <div className="absolute flex items-center justify-center w-full h-full bg-gradient-to-t from-[#151515] to-[rgba(21, 21, 21, 0) ">
                             <div className="text-white pl-20 space-y-4 md:w-1/2 flex flex-col items-center justify-center text-center">
-                                <h1 className="text-4xl md:text-6xl font-bold text-pink-100">Unlock Your Career Potential with <br /> <span className="text-3xl md:text-4xl">JobVista</span> </h1>
+                                <h1 className="text-4xl md:text-6xl font-bold text-pink-100">Unlock Your Career Potential with <br /> <span className="text-3xl md:text-6xl">JobVista</span> </h1>
                                 <p>Discover your next career move with Job Vista, where opportunities meet ambition. Streamline your job search and elevate your career trajectory effortlessly.</p>
 
                             </div>

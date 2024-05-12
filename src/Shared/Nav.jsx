@@ -16,6 +16,12 @@ const Nav = () => {
         <li><NavLink className={({ isActive }) => isActive ? 'bg-fuchsia-100 dark:text-purple-900 font-bold' : "font-bold"} to="/allJobs">All Jobs</NavLink></li>
         <li><NavLink className={({ isActive }) => isActive ? 'bg-fuchsia-100 dark:text-purple-900 font-bold' : "font-bold"} to="/addJob">Add Jobs</NavLink></li>
         <li><NavLink className={({ isActive }) => isActive ? 'bg-fuchsia-100 dark:text-purple-900 font-bold' : "font-bold"} to="/blog">Blog</NavLink></li>
+        {
+            user? <li><NavLink className={({ isActive }) => isActive ? 'bg-fuchsia-100 dark:text-purple-900 font-bold' : "font-bold"} to="/myJobs">My Jobs</NavLink></li>
+            :
+            ""
+        }
+        
     </>
 
     const handleToggle = e => {

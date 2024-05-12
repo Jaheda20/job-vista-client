@@ -6,6 +6,7 @@ import axios from "axios";
 
 
 
+
 const JobDetails = () => {
     const { user } = useAuth();
     const job = useLoaderData();
@@ -17,6 +18,11 @@ const JobDetails = () => {
 
     const handleApplication = async (e) => {
         e.preventDefault();
+        const currentDate = new Date();
+        const deadLine = new Date(deadline);
+        if(currentDate > deadLine){
+            return toast.error ('Date expired')
+        }
         if ((user?.email) === (recruiter?.email)) {
             return toast.error('Action is not allowed')
         }
@@ -25,25 +31,26 @@ const JobDetails = () => {
         const jobId = _id;
         const appliedJobCategory = jobCategory;
         const email = user?.email;
-        const deadLine = new Date(deadline);
-        const currentDate = new Date();
         const resume = form.resume.files;
         const applicants = applicants_count;
         const applicationData = { name, jobId, email, deadLine, currentDate, appliedJobCategory, resume, applicants }
         console.log(applicationData)
-        if(currentDate > deadline){
-            return toast.error('Application deadline is over')
-        }
+
         try {
             const { data } = await axios.post(
               `${import.meta.env.VITE_API_URL}/application`,
               applicationData
             )
-            console.log(data)
-            
-            
-          } catch (err) {
+            console.log(data)           
+            if(data?.insertedId){
+                toast.success('Application Submitted Successfully')
+                                
+            }
+                       
+          } 
+          catch (err) {
             console.log(err)
+            toast.error('Already Applied')
           }
 
 
