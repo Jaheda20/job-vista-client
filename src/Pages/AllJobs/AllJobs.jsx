@@ -25,24 +25,35 @@ const AllJobs = () => {
         setSearch(searchText)
     }
 
+    const handleReset = () =>{
+        setSearch('')
+        setSearchText('')
+        
+    }
+    
+
     return (
         <div>
             <div className="container mx-auto text-center flex flex-col items-center">
                 <h2 className="text-4xl dark:text-blue-400 text-blue-900 mt-20 mb-14">All Available Jobs</h2>
                 <div className="overflow-x-auto mb-10 border rounded-xl p-4">
+                    <div className="flex items-center justify-center gap-3">
                     <form onSubmit={handleSearch} className="flex items-center justify-center ">
                         <label className="input input-bordered flex items-center gap-2 my-4">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" className="w-4 h-4 opacity-70"><path fillRule="evenodd" d="M9.965 11.026a5 5 0 1 1 1.06-1.06l2.755 2.754a.75.75 0 1 1-1.06 1.06l-2.755-2.754ZM10.5 7a3.5 3.5 0 1 1-7 0 3.5 3.5 0 0 1 7 0Z" clipRule="evenodd" /></svg>
                             <input type="text" className="w-96" name="search" onChange={e=>setSearchText(e.target.value)} value={searchText} placeholder="Enter Job Title" />
 
-                            <button className='px-1 md:px-4 py-2 text-sm font-medium tracking-wider text-gray-100 uppercase transition-colors duration-300 transform bg-gray-700 rounded-md hover:bg-gray-600 focus:bg-gray-600 focus:outline-none'>
+                            <button className='px-1 md:px-4 py-2 text-sm font-medium tracking-wider text-black uppercase transition-colors duration-300 transform bg-fuchsia-200 hover:text-white rounded-md hover:bg-gray-600 focus:bg-gray-600 focus:outline-none'>
                                 Search
                             </button>
                         </label>
                         
                     </form>
-                    <table className="table">
+                    <button onClick={handleReset} className="btn bg-violet-200">Reset</button>
 
+                    </div>
+                    
+                    <table className="table">
                         <thead>
                             <tr>
                                 <th></th>

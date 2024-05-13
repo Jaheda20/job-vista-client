@@ -13,7 +13,7 @@ const AppliedJobs = () => {
     }, [user, filter])
 
     const getData = async () => {
-        const { data } = await axios(`${import.meta.env.VITE_API_URL}/appliedJobs/${user?.email}?filter=${filter}`)
+        const { data } = await axios(`${import.meta.env.VITE_API_URL}/appliedJobs/${user?.email}?filter=${filter}`, {withCredentials: true})
         console.log(data)
         setJobsApplied(data)
         

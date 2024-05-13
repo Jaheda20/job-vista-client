@@ -5,7 +5,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 
 const Banner = () => {
     return (
-        <div id="banner" className="mt-20 md:mt-12 mb-10 ">
+        <div id="banner" className="mb-10 ">
             <Swiper
                 pagination={true}
                 modules={[Pagination, Autoplay]}

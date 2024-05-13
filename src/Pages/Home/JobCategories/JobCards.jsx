@@ -7,7 +7,9 @@ const JobCards = ({ job }) => {
 
     return (
         <div>
+            
             <div className="w-full max-w-sm px-4 py-3 bg-fuchsia-50 border rounded-md shadow-xl dark:bg-gray-800">
+                
                 <div className="flex items-center justify-between">
                     <span className="text-sm font-light text-gray-800 dark:text-gray-400">Deadline: {new Date(deadline).toLocaleDateString()} </span>
                     <span className="px-3 py-1 text-xs text-indigo-800 uppercase bg-fuchsia-300 rounded-full dark:bg-blue-300 dark:text-blue-900">No. of Applicants: {applicants_count}</span>
