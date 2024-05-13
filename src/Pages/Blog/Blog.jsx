@@ -19,7 +19,7 @@ const Blog = () => {
                         Token Talk: Understanding Access and Refresh Tokens in Modern Web Development
                     </h1>
                     <div className="flex flex-col">
-                        <p className="mt-5 font-semibold text-gray-500">Author: Jaheda Sultana </p>
+                        <p className="mt-5 text-gray-500">Author: Jaheda Sultana </p>
                         <div className="flex items-center">
                             <p className="text-sm mr-2 text-gray-500 mt-2">
                                 10 min read </p>
@@ -118,10 +118,15 @@ const Blog = () => {
                 <p className="text-lg my-5"> This section indicates initialization of the Express application instance(app). Here, cors configuration settings are done to allow requests from the specified origins with credentials. Uses middleware to parse incoming request bodies as JSON and to parse cookies. Besides, establishes a connection to MongoDB database.
                 </p>
                 <img src={blogImg3} alt="" />
-                <p className="text-lg my-5"> VerifyToken this middleware function is used to authenticate requests by verifying the JWT stored in a cookie. This verifies the JWT using the secret key (process.env.ACCESS_TOKEN_SECRET). If the token is valid, sets the decoded user object on the request (req.user), allowing subsequent route handlers to access the authenticated user's information.
+                <p className="text-lg my-5"> VerifyToken this middleware function is used to authenticate requests by verifying the JWT stored in a cookie. This verifies the JWT using the secret key (process.env.ACCESS_TOKEN_SECRET). If the token is valid, sets the decoded user object on the request (req.user), allowing subsequent route handlers to access the authenticated user's information. In accordance to that, login/authentication route is Posted with /jwt and /logout POST route for user logout, which clears the access token cookie.
                 </p>
                 <img src={blogImg4} alt="" />
-                <p className="text-lg my-5"> VerifyToken this middleware function is used to authenticate requests by verifying the JWT stored in a cookie. This verifies the JWT using the secret key (process.env.ACCESS_TOKEN_SECRET). If the token is valid, sets the decoded user object on the request (req.user), allowing subsequent route handlers to access the authenticated user's information.
+                <p className="text-lg my-5"> Different routes are used in this projects for different purposes. For example- To get data on all listed jobs from database /jobs GET route has been made. 
+                </p>
+                <p className="text-lg my-5"> Moreover, database operations CRUD(Create, Read, Update, Delete) were performed on MongoDB collections to manage job listings and applications.
+                </p>
+
+                <p className="text-lg my-8"> Overall, this Express.js application provides a RESTful API for managing job listings, applications, and user authentication, with robust security features such as JWT-based authentication and secure cookie handling.
                 </p>
 
 

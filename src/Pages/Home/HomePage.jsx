@@ -2,8 +2,10 @@
 import { Helmet } from "react-helmet-async";
 import Banner from "./Banner";
 import JobCategories from "./JobCategories/JobCategories";
-import Offer from "./Offer";
+
 import './style.css';
+import Offer from "./Offer/Offer";
+import SummerOffer from "./Offer/SummerOffer";
 
 
 const HomePage = () => {
@@ -15,6 +17,7 @@ const HomePage = () => {
             <Offer></Offer>
             <Banner></Banner>
             <JobCategories></JobCategories>
+            <SummerOffer></SummerOffer>
         </div>
     );
 };
