@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
 import { RiDeleteBin6Line } from "react-icons/ri";
 import { FaEdit } from "react-icons/fa";
+import { Helmet } from "react-helmet-async";
 
 
 
@@ -59,6 +60,9 @@ const MyJobs = () => {
 
     return (
         <div className="container mx-auto text-center flex flex-col items-center">
+            <Helmet>
+                <title>JobVista | My Listed Job</title>
+            </Helmet>
             <h2 className="text-4xl dark:text-blue-400 text-blue-900 mt-20 mb-14">My Listed Jobs</h2>
             <div className="overflow-x-auto mb-10 border border-fuchsia-400 rounded-xl p-4 ">
                 <table className="table">

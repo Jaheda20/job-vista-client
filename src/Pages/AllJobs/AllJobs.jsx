@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 
 
@@ -34,6 +35,9 @@ const AllJobs = () => {
 
     return (
         <div>
+            <Helmet>
+                <title>JobVista | All Jobs</title>
+            </Helmet>
             <div className="container mx-auto text-center flex flex-col items-center">
                 <h2 className="text-4xl dark:text-blue-400 text-blue-900 mt-20 mb-14">All Available Jobs</h2>
                 <div className="overflow-x-auto mb-10 border rounded-xl p-4">

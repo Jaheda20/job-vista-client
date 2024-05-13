@@ -4,6 +4,7 @@ import "react-datepicker/dist/react-datepicker.css";
 import useAuth from "../../Hook/useAuth";
 import axios from "axios";
 import Swal from "sweetalert2";
+import { Helmet } from "react-helmet-async";
 
 
 
@@ -62,6 +63,9 @@ const AddJob = () => {
 
     return (
         <div className="container mx-auto my-10 flex flex-col items-center justify-center text-center">
+            <Helmet>
+                <title>JobVista | Add Job</title>
+            </Helmet>
             <h1 className="text-4xl">Add Job</h1>
             <div className="card mt-8 shrink-0 w-full max-w-4xl shadow-2xl bg-base-100 border border-violet-600 hover:bg-fuchsia-100">
                 <form onSubmit={handleAddJob} className="card-body">

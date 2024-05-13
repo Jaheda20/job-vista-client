@@ -8,6 +8,7 @@ import { useForm } from "react-hook-form";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import useAuth from "../../Hook/useAuth";
+import { Helmet } from "react-helmet-async";
 
 const Register = () => {
     const { createUser } = useAuth();
@@ -53,6 +54,9 @@ const Register = () => {
 
     return (
         <div className="flex flex-col-reverse md:flex-row items-center justify-center py-6 mt-10 bg-purple-100 ">
+            <Helmet>
+                <title>JobVista | Register</title>
+            </Helmet>
             <div className="w-1/2 ">
                 <Lottie animationData={registerAnimation} loop={true} />
             </div>

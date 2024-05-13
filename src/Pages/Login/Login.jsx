@@ -10,6 +10,7 @@ import useAuth from "../../Hook/useAuth";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Swal from "sweetalert2";
+import { Helmet } from "react-helmet-async";
 
 
 const Login = () => {
@@ -72,6 +73,9 @@ const Login = () => {
 
     return (
         <div className="flex flex-col-reverse md:flex-row items-center justify-center py-6 mt-10 bg-purple-100 ">
+            <Helmet>
+                <title>JobVista | Login</title>
+            </Helmet>
             <div className="md:w-1/2 w-4/5 mt-6 md:max-w-md p-8 space-y-3 rounded-xl bg-fuchsia-200">
                 <h1 className="text-2xl font-bold text-center text-black">Login</h1>
                 <form onSubmit={handleSubmit(onSubmit)} className="space-y-6 ">

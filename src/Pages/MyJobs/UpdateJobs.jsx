@@ -5,6 +5,7 @@ import 'react-datepicker/dist/react-datepicker.css';
 import { useState } from "react";
 import Swal from "sweetalert2";
 import axios from "axios";
+import { Helmet } from "react-helmet-async";
 
 
 const UpdateJobs = () => {
@@ -72,7 +73,9 @@ const UpdateJobs = () => {
 
     return (
         <div>
-            
+           <Helmet>
+                <title>JobVista | Update Job</title>
+            </Helmet> 
             <div className="container mx-auto my-10 flex flex-col items-center justify-center text-center">
                 <h1 className="text-4xl">Update Job Data</h1>
                 <div className="card mt-8 shrink-0 w-full max-w-4xl shadow-2xl bg-base-100 border border-violet-600 hover:bg-fuchsia-100">
