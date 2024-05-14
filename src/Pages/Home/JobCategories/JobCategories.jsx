@@ -20,7 +20,6 @@ const JobCategories = () => {
     const getData = async () => {
         const { data } = await axiosSecure(`/jobs`)
         return data
-
     }
 
     if (isLoading)
@@ -41,7 +40,7 @@ const JobCategories = () => {
 
     return (
         <div className="container mx-auto mb-6">
-            <h1 className="text-3xl font-semibold">Recently Added Jobs</h1>
+            <h1 className="text-3xl font-semibold text-center">Recently Added Jobs</h1>
             <Tabs>
                 <div className="px-10 py-10">
                     <div className="flex items-center justify-center ">

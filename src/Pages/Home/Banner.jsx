@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import "swiper/css";
 import "swiper/css/bundle";
 import { Autoplay, Pagination } from "swiper/modules";
@@ -16,20 +17,24 @@ const Banner = () => {
             >
 
                 <SwiperSlide className="slide">
-                    <div className='slide slide1 flex flex-col gap-4 item-center justify-center relative '>
+                    <div className='slide slide1 flex flex-col gap-4 item-center justify-center relative'>
                         <div className="absolute flex items-center justify-center w-full h-full bg-gradient-to-t from-[#151515] to-[rgba(21, 21, 21, 0) ">
                             <div className="text-white pl-20 space-y-4 md:w-1/2 flex flex-col items-center justify-center text-center">
                                 <h1 className="text-4xl md:text-6xl font-bold text-pink-100">Unlock Your Career Potential with <br /> <span className="text-3xl md:text-6xl">JobVista</span> </h1>
                                 <p>Discover your next career move with Job Vista, where opportunities meet ambition. Streamline your job search and elevate your career trajectory effortlessly.</p>
-
                             </div>
                         </div>
-
+                        
+                        <div className="h-36 px-20 py-4 bg-violet-400 bg-opacity-20 absolute bottom-0 w-full text-white flex justify-between items-center">
+                            <h1 className="text-4xl w-1/2 font-semibold">Your Next Career Awaits: <br />Explore Job Opportunities Now!</h1>
+                            <Link to={'/register'}><button className="btn">Get Started</button></Link>
+                        </div>
                     </div>
+                    
                 </SwiperSlide>
 
 
-                <SwiperSlide className="slide">
+                {/* <SwiperSlide className="slide">
                     <div className='slide slide2 flex flex-col gap-4 item-center justify-center relative'>
                     <div className="absolute flex items-center justify-center w-full h-full bg-gradient-to-t from-[#151515] to-[rgba(21, 21, 21, 0) ">
                             <div className="text-white pl-20 space-y-4 md:w-1/2 flex flex-col items-center justify-center text-center">
@@ -66,7 +71,7 @@ const Banner = () => {
                         </div>
                         
                     </div>
-                </SwiperSlide>
+                </SwiperSlide> */}
             </Swiper>
 
 

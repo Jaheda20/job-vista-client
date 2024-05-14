@@ -2,10 +2,10 @@ import { useState } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import useAuth from "../../Hook/useAuth";
-import axios from "axios";
 import Swal from "sweetalert2";
 import { Helmet } from "react-helmet-async";
 import useAxiosSecure from "../../Hook/useAxiosSecure";
+
 
 
 
@@ -14,6 +14,7 @@ const AddJob = () => {
     const { user } = useAuth();
     const [startDate, setStartDate] = useState(new Date());
     const axiosSecure = useAxiosSecure();
+
 
     const handleAddJob = async (e) => {
         e.preventDefault();
@@ -40,6 +41,8 @@ const AddJob = () => {
             }, applicants_count: 0,
         };
         console.log(job)
+
+
         try {
             const { data } = await axiosSecure.post(
                 `/addJob`,

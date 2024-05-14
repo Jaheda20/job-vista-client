@@ -15,12 +15,14 @@ const UpdateJobs = () => {
     const { user } = useAuth();
     const { id } = useParams();
     
+
+  
     const {photo, jobTitle, company, jobCategory,
         minSalary, maxSalary,
         jobDescription,
         publishedDate, deadline} = job || {};
 
-    const [startDate, setStartDate] = useState(new Date(deadline) || new Date())
+    const [startDate, setStartDate] = useState(new Date(deadline));
 
     const handleUpdate = async (e) => {
         e.preventDefault();
@@ -47,6 +49,7 @@ const UpdateJobs = () => {
             }, applicants_count:0
         };
         console.log(job)
+
         try {
             const { data } = await axiosSecure.put(
                 `/update/${id}`,
@@ -69,7 +72,7 @@ const UpdateJobs = () => {
             console.log(err)
         }
 
-    }
+     }
 
 
     return (
@@ -77,6 +80,7 @@ const UpdateJobs = () => {
            <Helmet>
                 <title>JobVista | Update Job</title>
             </Helmet> 
+
             <div className="container mx-auto my-10 flex flex-col items-center justify-center text-center">
                 <h1 className="text-4xl">Update Job Data</h1>
                 <div className="card mt-8 shrink-0 w-full max-w-4xl shadow-2xl bg-base-100 border border-violet-600 hover:bg-fuchsia-100">

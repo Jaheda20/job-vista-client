@@ -8,8 +8,8 @@ const JobCards = ({ job }) => {
     return (
         <div>
             <motion.div
-                whileHover={{ scale: 1.2 }} // Increase the scale on hover
-                transition={{ duration: 0.8 }} // Add a smooth transition
+                whileHover={{ scale: 1.2 }} 
+                transition={{ duration: 0.8 }} 
                 className="card"
             >
                 <div className="w-full max-w-sm px-4 py-3 bg-fuchsia-50 border rounded-md shadow-xl dark:bg-gray-800">

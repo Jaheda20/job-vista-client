@@ -1,0 +1,67 @@
+[
+    {
+      "id": 1,
+      "customerName": "John Doe",
+      "currentJob": "Software Engineer",
+      "rating": 5,
+      "review": "Great company culture and supportive team. Enjoying my work here! The work-life balance is excellent, and there are ample opportunities for growth.",
+      "image": "https://i.ibb.co/StM1xTB/photo-1535713875002-d1d0cf377fde-q-80-w-1480-auto-format-fit-crop-ixlib-rb-4-0.jpg"
+    },
+    {
+      "id": 2,
+      "customerName": "Alice Smith",
+      "currentJob": "Data Scientist",
+      "rating": 4,
+      "review": "Challenging projects and opportunities for growth. Overall a positive experience. The company values innovation and provides resources for professional development.",
+      "image": "https://i.ibb.co/Fms66LR/photo-1530785602389-07594beb8b73-q-80-w-1587-auto-format-fit-crop-ixlib-rb-4-0.jpg"
+    },
+    {
+      "id": 3,
+      "customerName": "Michael Johnson",
+      "currentJob": "Product Manager",
+      "rating": 5,
+      "review": "Excellent leadership and clear vision. Proud to be part of this team. The collaborative environment fosters creativity and innovation.",
+      "image": "https://i.ibb.co/2qZQCRR/photo-1568602471122-7832951cc4c5-q-80-w-1470-auto-format-fit-crop-ixlib-rb-4-0.jpg"
+    },
+    {
+      "id": 4,
+      "customerName": "Emily Brown",
+      "currentJob": "UI/UX Designer",
+      "rating": 4,
+      "review": "Creative freedom and collaboration. Room for improvement in project management. The company encourages experimentation and values user-centric design.",
+      "image": "https://i.ibb.co/SVsjt7G/photo-1604072366595-e75dc92d6bdc-q-80-w-1587-auto-format-fit-crop-ixlib-rb-4-0.jpg"
+    },
+    {
+      "id": 5,
+      "customerName": "David Wilson",
+      "currentJob": "Marketing Specialist",
+      "rating": 3,
+      "review": "Good work-life balance but could use more career development programs. The team is supportive, but communication could be clearer.",
+      "image": "https://i.ibb.co/x7M9WWr/photo-1595514191830-3e96a518989b-q-80-w-1587-auto-format-fit-crop-ixlib-rb-4-0.jpg"
+    },
+    {
+      "id": 6,
+      "customerName": "Sophia Martinez",
+      "currentJob": "Financial Analyst",
+      "rating": 5,
+      "review": "Strong mentorship and learning opportunities. Thriving in a fast-paced environment. The company's commitment to employee growth is commendable.",
+      "image": "https://i.ibb.co/pb4LpFm/photo-1464863979621-258859e62245-blend-000000-blend-alpha-10-blend-mode-normal-blend-w-1-crop-faces.jpg"
+    },
+    {
+      "id": 7,
+      "customerName": "William Taylor",
+      "currentJob": "Project Manager",
+      "rating": 4,
+      "review": "Enjoyable projects and collaborative team. Communication could be improved. The company emphasizes teamwork and provides resources for professional development.",
+      "image": "https://i.ibb.co/m57zYX6/photo-1577880216142-8549e9488dad-q-80-w-1470-auto-format-fit-crop-ixlib-rb-4-0.jpg"
+    },
+    {
+      "id": 8,
+      "customerName": "Olivia Anderson",
+      "currentJob": "HR Manager",
+      "rating": 3,
+      "review": "Supportive colleagues but sometimes unclear expectations from management. The company values work-life balance but lacks structured career paths.",
+      "image": "https://i.ibb.co/NnzfR7P/photo-1595085610896-fb31cfd5d4b7-q-80-w-1467-auto-format-fit-crop-ixlib-rb-4-0.jpg"
+    }
+  ]
+  

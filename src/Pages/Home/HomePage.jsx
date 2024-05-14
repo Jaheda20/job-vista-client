@@ -7,6 +7,7 @@ import './style.css';
 import Offer from "./Offer/Offer";
 import SummerOffer from "./Offer/SummerOffer";
 import CareerAdvice from "./Career/CareerAdvice";
+import Review from "./Review";
 
 
 const HomePage = () => {
@@ -20,6 +21,7 @@ const HomePage = () => {
             <JobCategories></JobCategories>
             <SummerOffer></SummerOffer>
             <CareerAdvice></CareerAdvice>
+            <Review></Review>
             
             
         </div>
