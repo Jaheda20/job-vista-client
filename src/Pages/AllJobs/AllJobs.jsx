@@ -1,10 +1,11 @@
-import axios from "axios";
 import { useEffect, useState } from "react";
 import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
+import useAxiosSecure from "../../Hook/useAxiosSecure";
 
 
 const AllJobs = () => {
+    const axiosSecure = useAxiosSecure();
 
     const [jobs, setJobs] = useState([]);
     const [search, setSearch] = useState('')
@@ -12,7 +13,7 @@ const AllJobs = () => {
 
     useEffect(() => {
         const getData = async () => {
-            const { data } = await axios(`${import.meta.env.VITE_API_URL}/allJobs?search=${search}`)
+            const { data } = await axiosSecure(`/allJobs?search=${search}`)
             console.log(data)
             setJobs(data)
         }
@@ -21,8 +22,7 @@ const AllJobs = () => {
     }, [search])
 
     const handleSearch = e =>{
-        e.preventDefault();
-        
+        e.preventDefault();      
         setSearch(searchText)
     }
 

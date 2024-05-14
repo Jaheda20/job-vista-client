@@ -2,15 +2,15 @@ import { Tab, TabList, TabPanel, Tabs } from "react-tabs";
 import 'react-tabs/style/react-tabs.css';
 import JobCards from "./JobCards";
 import { useEffect, useState } from "react";
-import axios from "axios";
+import useAxiosSecure from "../../../Hook/useAxiosSecure";
 
 const JobCategories = () => {
-
+    const axiosSecure = useAxiosSecure();
     const [jobs, setJobs] = useState([]);
 
     useEffect(() => {
         const getData = async()=> {
-            const { data }  = await axios(`${import.meta.env.VITE_API_URL}/jobs`)
+            const { data }  = await axiosSecure(`/jobs`)
             setJobs(data)
         }
         getData()

@@ -9,7 +9,7 @@ import blogImg4 from "/images/blog4.png"
 
 const Blog = () => {
     return (
-        <div className="container px-20 mx-auto my-10 flex flex-col items-center w-3/5">
+        <div className="container px-4 lg:px-20 mx-auto my-10 flex flex-col items-center lg:w-3/5">
             <Helmet>
                 <title>JobVista | Blog</title>
             </Helmet>

@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
 import useAuth from "../../Hook/useAuth";
-import axios from "axios";
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
 import { RiDeleteBin6Line } from "react-icons/ri";
 import { FaEdit } from "react-icons/fa";
 import { Helmet } from "react-helmet-async";
+import useAxiosSecure from "../../Hook/useAxiosSecure";
 
 
 
@@ -14,6 +14,7 @@ import { Helmet } from "react-helmet-async";
 
 const MyJobs = () => {
     const { user } = useAuth();
+    const axiosSecure = useAxiosSecure();
     const [jobs, setJobs] = useState([]);
 
     useEffect(() => {
@@ -21,7 +22,7 @@ const MyJobs = () => {
     }, [user])
 
     const getData = async () => {
-        const { data } = await axios(`${import.meta.env.VITE_API_URL}/myJobs/${user?.email}`, {withCredentials: true})
+        const { data } = await axiosSecure(`/myJobs/${user?.email}`)
         setJobs(data)
     }
 
@@ -38,12 +39,12 @@ const MyJobs = () => {
         })
         if (result.isConfirmed) {
             try {
-                const { data } = await axios.delete(`${import.meta.env.VITE_API_URL}/deleteJob/${id}`)
+                const { data } = await axiosSecure.delete(`/deleteJob/${id}`)
                 console.log(data)
                 if (data.deletedCount > 0)
                     Swal.fire({
                         title: "Deleted!",
-                        text: "Your spot has been deleted.",
+                        text: "Your job has been deleted.",
                         icon: "success"
                     });
                 getData()

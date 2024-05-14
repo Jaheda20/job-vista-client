@@ -4,11 +4,12 @@ import DatePicker from "react-datepicker";
 import 'react-datepicker/dist/react-datepicker.css';
 import { useState } from "react";
 import Swal from "sweetalert2";
-import axios from "axios";
 import { Helmet } from "react-helmet-async";
+import useAxiosSecure from "../../Hook/useAxiosSecure";
 
 
 const UpdateJobs = () => {
+    const axiosSecure = useAxiosSecure();
     const job = useLoaderData();
     const navigate = useNavigate()
     const { user } = useAuth();
@@ -47,8 +48,8 @@ const UpdateJobs = () => {
         };
         console.log(job)
         try {
-            const { data } = await axios.put(
-                `${import.meta.env.VITE_API_URL}/update/${id}`,
+            const { data } = await axiosSecure.put(
+                `/update/${id}`,
                 job
             )
             console.log(data)

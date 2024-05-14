@@ -1,16 +1,18 @@
+import { Slide } from "react-awesome-reveal";
 import { Link } from "react-router-dom";
 
 
 const CareerAdvice = () => {
     return (
         <div className="container mx-auto my-20">
+
+            <Slide>
             <div className="flex flex-col md:flex-row">
-                <div className="w-1/2">
+                <div className="md:w-1/2">
                     <img src="https://i.ibb.co/tsRvQLj/photo-1488190211105-8b0e65b80b4e-q-80-w-1470-auto-format-fit-crop-ixlib-rb-4-0.jpg" alt="" className="h-96 w-full" />
                 </div>
-
             
-                    <div className="w-1/2 flex flex-col items-center justify-center text-center">
+                    <div className="md:w-1/2 flex flex-col items-center justify-center text-center">
                         <h1 className="text-5xl font-bold mb-6">Your job is personal</h1>
                         <p className="text-lg w-80 mb-8">Get to know yourself with some free career self assessments</p>
                         <Link to="/assessments" className="relative inline-flex items-center justify-center px-6 py-1 text-lg font-medium tracking-tighter text-white bg-gray-800 rounded-md group">
@@ -23,13 +25,16 @@ const CareerAdvice = () => {
             
 
             </div>
+            </Slide>
 
+
+            <Slide direction="right">
             <div className="flex flex-col md:flex-row-reverse">
-                <div className="w-1/2">
+                <div className="md:w-1/2">
                     <img src="https://i.ibb.co/hRJhqrm/photo-1443916568596-df5a58c445e9-q-80-w-1632-auto-format-fit-crop-ixlib-rb-4-0.jpg" alt="" className="h-96" />
                 </div>
 
-                <div className="w-1/2 flex flex-col items-center justify-center text-center">
+                <div className="md:w-1/2 flex flex-col items-center justify-center text-center">
                     <h1 className="text-5xl font-bold mb-6">Ready to level-up?</h1>
                     <p className="text-lg w-80 mb-8">Excel with our Jobs hub. Find tips to get ahead and make your goals a reality</p>
                     <Link to="/tips" className="relative inline-flex items-center justify-center px-6 py-1 text-lg font-medium tracking-tighter text-white bg-gray-800 rounded-md group">
@@ -41,13 +46,15 @@ const CareerAdvice = () => {
                 </div>
 
             </div>
-
+            </Slide>
+            
+            <Slide>
             <div className="flex flex-col md:flex-row">
-                <div className="w-1/2">
+                <div className="md:w-1/2">
                     <img src="https://i.ibb.co/TMh4Sjm/photo-1598257006460-4cd5d043cf49-q-80-w-1470-auto-format-fit-crop-ixlib-rb-4-0.jpg" alt="" className="h-96 w-full" />
                 </div>
 
-                <div className="w-1/2 flex flex-col items-center justify-center text-center">
+                <div className="md:w-1/2 flex flex-col items-center justify-center text-center">
                     <h1 className="text-5xl font-bold mb-6">Unlocking dream career</h1>
                     <p className="text-lg w-80 mb-8">Learn tricks to start looking for your dream job</p>
                     <Link to="/jobSearch" className="relative inline-flex items-center justify-center px-6 py-1 text-lg font-medium tracking-tighter text-white bg-gray-800 rounded-md group">
@@ -59,6 +66,7 @@ const CareerAdvice = () => {
                 </div>
 
             </div>
+            </Slide>
 
 
 
