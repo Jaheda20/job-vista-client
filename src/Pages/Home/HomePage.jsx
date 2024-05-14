@@ -6,6 +6,7 @@ import JobCategories from "./JobCategories/JobCategories";
 import './style.css';
 import Offer from "./Offer/Offer";
 import SummerOffer from "./Offer/SummerOffer";
+import CareerAdvice from "./Career/CareerAdvice";
 
 
 const HomePage = () => {
@@ -18,6 +19,9 @@ const HomePage = () => {
             <Banner></Banner>
             <JobCategories></JobCategories>
             <SummerOffer></SummerOffer>
+            <CareerAdvice></CareerAdvice>
+            
+            
         </div>
     );
 };
