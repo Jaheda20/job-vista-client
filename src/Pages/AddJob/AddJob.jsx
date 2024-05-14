@@ -5,6 +5,7 @@ import useAuth from "../../Hook/useAuth";
 import axios from "axios";
 import Swal from "sweetalert2";
 import { Helmet } from "react-helmet-async";
+import useAxiosSecure from "../../Hook/useAxiosSecure";
 
 
 
@@ -12,6 +13,7 @@ const AddJob = () => {
 
     const { user } = useAuth();
     const [startDate, setStartDate] = useState(new Date());
+    const axiosSecure = useAxiosSecure();
 
     const handleAddJob = async (e) => {
         e.preventDefault();
@@ -39,8 +41,8 @@ const AddJob = () => {
         };
         console.log(job)
         try {
-            const { data } = await axios.post(
-                `${import.meta.env.VITE_API_URL}/addJob`,
+            const { data } = await axiosSecure.post(
+                `/addJob`,
                 job
             )
             console.log(data)

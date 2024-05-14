@@ -2,7 +2,8 @@ import { useLoaderData } from "react-router-dom";
 import useAuth from "../../../Hook/useAuth";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import axios from "axios";
+import useAxiosSecure from "../../../Hook/useAxiosSecure";
+import { useState } from "react";
 
 
 
@@ -10,11 +11,18 @@ import axios from "axios";
 const JobDetails = () => {
     const { user } = useAuth();
     const job = useLoaderData();
+    const axiosSecure = useAxiosSecure();
     const { _id, photo, jobTitle, company,
         jobCategory, minSalary, maxSalary,
         jobDescription,
         deadline, recruiter,
         applicants_count } = job;
+    
+    const [resume, setResume] = useState(null);
+
+    const handleFile = e =>{
+        setResume(e.target.files[0])
+    }
 
     const handleApplication = async (e) => {
         e.preventDefault();
@@ -33,14 +41,14 @@ const JobDetails = () => {
         const companyName = company;
         const appliedJobCategory = jobCategory;
         const email = user?.email;
-        const resume = form.files[0];
+        const resumeFile = resume;
         const applicants = applicants_count;
-        const applicationData = { name, jobId, companyName, job_title, email, deadLine, currentDate, appliedJobCategory, resume, applicants }
+        const applicationData = { name, jobId, companyName, job_title, email, deadLine, currentDate, appliedJobCategory, resumeFile, applicants }
         console.log(applicationData)
 
         try {
-            const { data } = await axios.post(
-              `${import.meta.env.VITE_API_URL}/application`,
+            const { data } = await axiosSecure.post(
+              `/application`,
               applicationData
             )
             console.log(data)           
@@ -53,6 +61,7 @@ const JobDetails = () => {
           catch (err) {
             console.log(err)
             toast.error('Already Applied')
+            
           }
 
 
@@ -116,7 +125,7 @@ const JobDetails = () => {
                                 <label className="label">
                                     <span className="label-text">Attach Resume</span>
                                 </label>
-                                <input type="file" name="resume" required />
+                                <input type="file" name="resume" onChange={handleFile} required />
                             </div>
 
                             <div className="form-control">
