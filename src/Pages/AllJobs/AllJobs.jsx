@@ -7,7 +7,7 @@ import { useQuery, useQueryClient } from "@tanstack/react-query";
 
 const AllJobs = () => {
     const axiosSecure = useAxiosSecure();
-    const queryClient = useQueryClient();
+    // const queryClient = useQueryClient();
     // const [jobs, setJobs] = useState([]);
     const [search, setSearch] = useState('')
     const [searchText, setSearchText] = useState('')

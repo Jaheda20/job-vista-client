@@ -6,8 +6,7 @@ import { RiDeleteBin6Line } from "react-icons/ri";
 import { FaEdit } from "react-icons/fa";
 import { Helmet } from "react-helmet-async";
 import useAxiosSecure from "../../Hook/useAxiosSecure";
-
-
+import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 
 
 
@@ -15,16 +14,39 @@ import useAxiosSecure from "../../Hook/useAxiosSecure";
 const MyJobs = () => {
     const { user } = useAuth();
     const axiosSecure = useAxiosSecure();
-    const [jobs, setJobs] = useState([]);
+    // const [jobs, setJobs] = useState([]);
+    const queryClient = useQueryClient();
 
-    useEffect(() => {
-        getData()
-    }, [user])
+    // useEffect(() => {
+    //     getData()
+    // }, [user])
+
+    const { data: jobs = [], isLoading, refetch, isError, error } = useQuery({
+        queryFn: () => getData(),
+        queryKey: ['jobs', user?.email]
+    });
 
     const getData = async () => {
         const { data } = await axiosSecure(`/myJobs/${user?.email}`)
-        setJobs(data)
+        return (data)
     }
+
+    const { mutateAsync } = useMutation({
+        mutationFn: async({id})=> {
+            const { data } = await axiosSecure.delete(`/deleteJob/${id}`);
+            console.log(data)
+            return (data)
+        },
+        onSuccess:()=>{
+            refetch()
+        }
+    })
+
+    if (isLoading)
+        return
+    <div className="flex items-center justify-center text-7xl my-40">
+        <span className="loading loading-bars loading-lg"></span>
+    </div>
 
     const handleDelete = async (id) => {
         console.log(id)
@@ -39,9 +61,10 @@ const MyJobs = () => {
         })
         if (result.isConfirmed) {
             try {
-                const { data } = await axiosSecure.delete(`/deleteJob/${id}`)
-                console.log(data)
-                if (data.deletedCount > 0)
+                await mutateAsync({id})
+                // const { data } = await axiosSecure.delete(`/deleteJob/${id}`)
+                // console.log(data)
+                // if (data.deletedCount > 0)
                     Swal.fire({
                         title: "Deleted!",
                         text: "Your job has been deleted.",
@@ -97,7 +120,7 @@ const MyJobs = () => {
                                     <td>{job.publishedDate}</td>
                                     <td>{new Date(job.deadline).toLocaleDateString()}</td>
 
-                                    <td><Link to={`/update/${job._id}`}><FaEdit size={20}/>
+                                    <td><Link to={`/update/${job._id}`}><FaEdit size={20} />
                                     </Link>
                                     </td>
                                     <td onClick={() => handleDelete(job._id)}> <RiDeleteBin6Line size={20} />

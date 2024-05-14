@@ -9,7 +9,7 @@ const AppliedJobs = () => {
     const axiosSecure = useAxiosSecure();
     // const [jobsApplied, setJobsApplied] = useState([]);
     const [filter, setFilter] = useState('');
-    const queryClient = useQueryClient();
+    // const queryClient = useQueryClient();
 
     const { data: jobsApplied = [], isLoading, refetch, isError, error } = useQuery({
         queryFn: () => getData(),
@@ -83,7 +83,8 @@ const AppliedJobs = () => {
             <div className="my-20">
 
                 <div className="container mx-auto text-center flex flex-col items-center">
-                    <h2 className="text-4xl dark:text-blue-400 text-blue-900 mt-20 mb-14">Applied Jobs: {jobsApplied.length}</h2>
+                    <h2 className="text-2xl dark:text-blue-400 text-blue-900 mt-20 mb-14">Applied Jobs: {jobsApplied.length}</h2>
+                    
                     <div className="overflow-x-auto mb-10 border border-fuchsia-400 rounded-xl p-4 ">
                         <div className="flex items-end justify-end my-5">
                             <select
