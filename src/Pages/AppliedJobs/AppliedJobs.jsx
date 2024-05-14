@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import useAuth from "../Hook/useAuth";
-import useAxiosSecure from "../Hook/useAxiosSecure";
+import useAuth from "../../Hook/useAuth";
+import useAxiosSecure from "../../Hook/useAxiosSecure";
 import { PDFViewer, PDFDownloadLink, Document, Page, Text, View, StyleSheet } from '@react-pdf/renderer';
 import { useQuery, useQueryClient } from "@tanstack/react-query";
 

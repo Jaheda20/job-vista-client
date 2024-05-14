@@ -11,10 +11,11 @@ import AddJob from "../Pages/AddJob/AddJob";
 import PrivateRoute from "./PrivateRoute";
 import MyJobs from "../Pages/MyJobs/MyJobs";
 import UpdateJobs from "../Pages/MyJobs/UpdateJobs";
-import AppliedJobs from "../AppliedJobs/AppliedJobs";
+import AppliedJobs from "../Pages/AppliedJobs/AppliedJobs";
 import Assessments from "../Pages/Home/Career/Assessments";
 import Tips from "../Pages/Home/Career/Tips";
 import JobSearch from "../Pages/Home/Career/JobSearch";
+import UpdateProfile from "../Pages/Register/UpdateProfile";
 
 
 
@@ -35,6 +36,11 @@ const router = createBrowserRouter([
         {
             path: "/register",
             element: <Register></Register>
+        },
+        {
+          path: "/updateProfile",
+          element: <PrivateRoute><UpdateProfile></UpdateProfile></PrivateRoute>
+
         },
         {
           path: "/blog",

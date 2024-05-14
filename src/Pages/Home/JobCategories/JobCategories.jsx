@@ -1,7 +1,6 @@
 import { Tab, TabList, TabPanel, Tabs } from "react-tabs";
 import 'react-tabs/style/react-tabs.css';
 import JobCards from "./JobCards";
-import { useEffect, useState } from "react";
 import useAxiosSecure from "../../../Hook/useAxiosSecure";
 import { useQuery, useQueryClient } from "@tanstack/react-query";
 import useAuth from "../../../Hook/useAuth";
@@ -9,7 +8,6 @@ import useAuth from "../../../Hook/useAuth";
 const JobCategories = () => {
     const { user } = useAuth();
     const axiosSecure = useAxiosSecure();
-    // const [jobs, setJobs] = useState([]);
     const queryClient = useQueryClient();
 
     const { data: jobs = [], isLoading, refetch, isError, error } = useQuery({
@@ -29,14 +27,7 @@ const JobCategories = () => {
         </div>
 
 
-    // useEffect(() => {
-    //     const getData = async()=> {
-    //         const { data }  = await axiosSecure(`/jobs`)
-    //         setJobs(data)
-    //     }
-    //     getData()
-
-    // }, [])
+    
 
     return (
         <div className="container mx-auto mb-6">

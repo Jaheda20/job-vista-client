@@ -82,12 +82,13 @@ const Nav = () => {
                                 <details className="dropdown">
                                     <summary className="m-1 btn">
                                         <div className="tooltip flex" data-tip={user?.displayName || 'Unknown User'}>
-                                            <img className="w-8 md:w-10 rounded-full" src={user?.photoURL || userPhoto
+                                            <img className="w-8 h-8 md:w-10  rounded-full" src={user?.photoURL || userPhoto
                                             } alt="" />
                                         </div>
 
                                     </summary>
                                     <ul className="p-2 shadow menu dropdown-content z-10 bg-base-100 rounded-box w-48">
+                                    <li><Link className={({ isActive }) => isActive ? 'bg-fuchsia-100 dark:text-purple-900 font-bold' : "font-bold"} to="/updateProfile">Profile Update</Link></li>
                                     <li><Link className={({ isActive }) => isActive ? 'bg-fuchsia-100 dark:text-purple-900 font-bold' : "font-bold"} to="/myJobs">My Jobs</Link></li>
                                     <li><Link className={({ isActive }) => isActive ? 'bg-fuchsia-100 dark:text-purple-900 font-bold' : "font-bold"} to="/appliedJobs">Applied Jobs</Link></li>
                                         <li><p onClick={() => handleLogOut()}> <TbLogout />

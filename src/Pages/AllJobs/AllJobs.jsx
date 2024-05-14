@@ -1,15 +1,15 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import useAxiosSecure from "../../Hook/useAxiosSecure";
-import { useQuery, useQueryClient } from "@tanstack/react-query";
+import { useQuery } from "@tanstack/react-query";
 import Partners from "../../Shared/Partners";
 
 
 const AllJobs = () => {
     const axiosSecure = useAxiosSecure();
     // const queryClient = useQueryClient();
-    // const [jobs, setJobs] = useState([]);
+    
     const [search, setSearch] = useState('')
     const [searchText, setSearchText] = useState('')
 
@@ -44,17 +44,6 @@ const AllJobs = () => {
     }
 
     
-    // useEffect(() => {
-    //     const getData = async () => {
-    //         const { data } = await axiosSecure(`/allJobs?search=${search}`)
-    //         console.log(data)
-    //         setJobs(data)
-    //     }
-    //     getData()
-
-    // }, [search])
-
-    
 
 
     return (
@@ -63,7 +52,8 @@ const AllJobs = () => {
                 <title>JobVista | All Jobs</title>
             </Helmet>
             <div className="container mx-auto text-center flex flex-col items-center">
-                <h2 className="text-2xl dark:text-blue-400 text-blue-900 mt-20 mb-14">Current Vacancies </h2>
+                
+                <h2 className="text-2xl dark:text-blue-400 text-black font-semibold mt-20 mb-14">Current Vacancies </h2>
                 <div className="overflow-x-auto mb-10 border rounded-xl p-4">
                     <div className="flex items-center justify-center gap-3">
                         <form onSubmit={handleSearch} className="flex items-center justify-center ">
