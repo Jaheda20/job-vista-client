@@ -17,10 +17,10 @@ const JobDetails = () => {
         jobDescription,
         deadline, recruiter,
         applicants_count } = job;
-    
+
     const [resume, setResume] = useState(null);
 
-    const handleFile = e =>{
+    const handleFile = e => {
         setResume(e.target.files[0])
     }
 
@@ -28,8 +28,8 @@ const JobDetails = () => {
         e.preventDefault();
         const currentDate = new Date();
         const deadLine = new Date(deadline);
-        if(currentDate > deadLine){
-            return toast.error ('Date expired')
+        if (currentDate > deadLine) {
+            return toast.error('Date expired')
         }
         if ((user?.email) === (recruiter?.email)) {
             return toast.error('Action is not allowed')
@@ -48,21 +48,21 @@ const JobDetails = () => {
 
         try {
             const { data } = await axiosSecure.post(
-              `/application`,
-              applicationData
+                `/application`,
+                applicationData
             )
-            console.log(data)           
-            if(data?.insertedId){
+            console.log(data)
+            if (data?.insertedId) {
                 toast.success('Application Submitted Successfully')
-                                
+
             }
-                       
-          } 
-          catch (err) {
+
+        }
+        catch (err) {
             console.log(err)
             toast.error('Already Applied')
-            
-          }
+
+        }
 
     }
 
@@ -95,6 +95,20 @@ const JobDetails = () => {
                             <p className="mx-1 text-xs text-gray-600 dark:text-gray-300">Application Deadline: {new Date(deadline).toLocaleDateString()}</p>
                             <p className="text-xs font-medium text-blue-600 uppercase bg-blue-200 px-4 py-1 rounded-full dark:text-blue-400">No. of Application: {applicants_count}</p>
                         </div>
+                        <div className="mt-6 bg-fuchsia-100 py-6 px-4 w-72 rounded-md">
+                            <p className=" text-sm">Contact Person-</p>
+                            <div className="flex gap-3 mt-3 items-center">
+                            <img src={recruiter.photo} alt="" className="w-8 h-8 rounded-full" />
+                            <div>
+                                <p className=" text-sm">{recruiter.name}</p>
+                                <p className=" text-sm">{recruiter.email}</p>
+                            </div>
+
+                            </div>
+                            
+
+                        </div>
+
 
                     </div>
                 </div>
@@ -138,9 +152,9 @@ const JobDetails = () => {
                             <div className="form-control mt-6">
                                 <button className="btn btn-primary">Submit</button>
                             </div>
-                            
+
                         </form>
-                        
+
                     </div>
                     <button onClick={() => document.getElementById("my_modal_4").close()} className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2" type="button">✕</button>
                 </div>

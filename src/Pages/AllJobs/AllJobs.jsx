@@ -3,6 +3,7 @@ import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import useAxiosSecure from "../../Hook/useAxiosSecure";
 import { useQuery, useQueryClient } from "@tanstack/react-query";
+import Partners from "../../Shared/Partners";
 
 
 const AllJobs = () => {
@@ -124,6 +125,7 @@ const AllJobs = () => {
                 </div>
 
             </div>
+            <Partners></Partners>
 
         </div>
     );

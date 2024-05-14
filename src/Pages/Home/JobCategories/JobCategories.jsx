@@ -56,7 +56,7 @@ const JobCategories = () => {
                     </div>
 
                     <TabPanel>
-                        <div className="grid grid-cols-1 md:grid-cols-3 mt-10 px-2 gap-4">
+                        <div className="grid grid-cols-1 md:grid-cols-3 mt-10 px-2 gap-8">
                             {jobs.filter(j => j.jobCategory === 'Permanent').
                                 map(job => <JobCards key={job._id} job={job}>
 

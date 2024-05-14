@@ -27,14 +27,14 @@ const Banner = () => {
                         
                         <div className="h-36 px-20 py-4 bg-violet-400 bg-opacity-20 absolute bottom-0 w-full text-white flex justify-between items-center">
                             <h1 className="text-4xl w-1/2 font-semibold">Your Next Career Awaits: <br />Explore Job Opportunities Now!</h1>
-                            <Link to={'/register'}><button className="btn">Get Started</button></Link>
+                            <Link to={'/allJobs'}><button className="btn">Get Started</button></Link>
                         </div>
                     </div>
                     
                 </SwiperSlide>
 
 
-                {/* <SwiperSlide className="slide">
+                <SwiperSlide className="slide">
                     <div className='slide slide2 flex flex-col gap-4 item-center justify-center relative'>
                     <div className="absolute flex items-center justify-center w-full h-full bg-gradient-to-t from-[#151515] to-[rgba(21, 21, 21, 0) ">
                             <div className="text-white pl-20 space-y-4 md:w-1/2 flex flex-col items-center justify-center text-center">
@@ -42,6 +42,10 @@ const Banner = () => {
                                 <p>Join our dynamic team and embark on a journey of innovation and collaboration. Together, let's create meaningful impact and achieve extraordinary success.</p>
 
                             </div>
+                        </div>
+                        <div className="h-28 px-2 md:h-36 md:px-20 py-4 bg-violet-400 bg-opacity-20 absolute bottom-0 w-full text-white flex  md:justify-between items-center">
+                            <h1 className="text-xl md:text-4xl md:w-1/2 font-semibold">Your Next Career Awaits: <br />Explore Job Opportunities Now!</h1>
+                            <Link to={'/allJobs'}><button className="btn">Get Started</button></Link>
                         </div>
 
                     </div>
@@ -56,6 +60,10 @@ const Banner = () => {
 
                             </div>
                         </div>
+                        <div className="h-28 px-2 md:h-36 md:px-20 py-4 bg-violet-400 bg-opacity-20 absolute bottom-0 w-full text-white flex  md:justify-between items-center">
+                            <h1 className="text-xl md:text-4xl md:w-1/2 font-semibold">Your Next Career Awaits: <br />Explore Job Opportunities Now!</h1>
+                            <Link to={'/allJobs'}><button className="btn">Get Started</button></Link>
+                        </div>
                         
                     </div>
                 </SwiperSlide>
@@ -69,9 +77,12 @@ const Banner = () => {
 
                             </div>
                         </div>
-                        
+                        <div className="h-28 px-2 md:h-36 md:px-20 py-4 bg-violet-400 bg-opacity-20 absolute bottom-0 w-full text-white flex  md:justify-between items-center">
+                            <h1 className="text-xl md:text-4xl md:w-1/2 font-semibold">Your Next Career Awaits: <br />Explore Job Opportunities Now!</h1>
+                            <Link to={'/allJobs'}><button className="btn">Get Started</button></Link>
+                        </div>
                     </div>
-                </SwiperSlide> */}
+                </SwiperSlide>
             </Swiper>
 
 
