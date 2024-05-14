@@ -12,7 +12,7 @@ const SummerOffer = () => {
             </Zoom>
             <div className="grid grid-cols-1 md:grid-cols-3 px-6 py-14">
                 <Slide>
-                <div className=" border-r-2 border-r-purple-600 bg-purple-200 p-10 flex flex-col items-center justify-center">
+                <div className=" text-black border-r-2 border-r-purple-600 bg-purple-200 p-10 flex flex-col items-center justify-center">
                     <h1 className="text-lg font-bold mb-3 border-rose-50">Enterprise Customers</h1>
                     <p className="text-center">Try JobVista for free with a $100 posting sponsorship credit for your first month.</p>
                     <Link to="/register" className="mt-5 relative inline-flex items-center justify-center px-6 py-2 text-lg font-medium tracking-tighter text-white bg-gray-800 rounded-md group">
@@ -26,7 +26,7 @@ const SummerOffer = () => {
                 
                 <Zoom>
                 <div className="border-r-2 border-r-purple-600 bg-purple-200 p-10 flex flex-col items-center justify-center">
-                    <h1 className="text-lg font-bold mb-3 border-rose-50">Shifts Customers</h1>
+                    <h1 className="text-lg text-black font-bold mb-3 border-rose-50">Shifts Customers</h1>
                     <p className="text-center">Sign up and get 6 Shifts for free in your first month. You only pay the worker, not us.</p>
                     <Link to="/register" className="mt-5 relative inline-flex items-center justify-center px-6 py-2 text-lg font-medium tracking-tighter text-white bg-gray-800 rounded-md group">
                         <span className="absolute inset-0 w-full h-full mt-1 ml-1 transition-all duration-300 ease-in-out bg-purple-600 rounded-md group-hover:mt-0 group-hover:ml-0"></span>
@@ -40,7 +40,7 @@ const SummerOffer = () => {
 
                 <Slide direction="right">
                 <div className=" bg-purple-200 p-10 flex flex-col items-center justify-center">
-                    <h1 className="text-lg font-bold mb-3 border-rose-50">Small Businesses</h1>
+                    <h1 className="text-lg text-black font-bold mb-3 border-rose-50">Small Businesses</h1>
                     <p className="text-center">Join Snagajob for free and get $25 off each of your first 4 postings, up to $100 savings.</p>
                     <Link to="/register" className="mt-5 relative inline-flex items-center justify-center px-6 py-2 text-lg font-medium tracking-tighter text-white bg-gray-800 rounded-md group">
                         <span className="absolute inset-0 w-full h-full mt-1 ml-1 transition-all duration-300 ease-in-out bg-purple-600 rounded-md group-hover:mt-0 group-hover:ml-0"></span>

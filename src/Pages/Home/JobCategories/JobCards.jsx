@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
+import PropTypes from 'prop-types';
 
 const JobCards = ({ job }) => {
 
@@ -70,3 +71,7 @@ const JobCards = ({ job }) => {
 };
 
 export default JobCards;
+
+JobCards.propTypes={
+    job: PropTypes.array
+}

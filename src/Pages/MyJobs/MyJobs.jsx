@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+
 import useAuth from "../../Hook/useAuth";
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
@@ -6,7 +6,7 @@ import { RiDeleteBin6Line } from "react-icons/ri";
 import { FaEdit } from "react-icons/fa";
 import { Helmet } from "react-helmet-async";
 import useAxiosSecure from "../../Hook/useAxiosSecure";
-import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
+import { useMutation, useQuery } from "@tanstack/react-query";
 
 
 
@@ -14,14 +14,11 @@ import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 const MyJobs = () => {
     const { user } = useAuth();
     const axiosSecure = useAxiosSecure();
-    // const [jobs, setJobs] = useState([]);
-    const queryClient = useQueryClient();
+    
 
-    // useEffect(() => {
-    //     getData()
-    // }, [user])
+    
 
-    const { data: jobs = [], isLoading, refetch, isError, error } = useQuery({
+    const { data: jobs = [], isLoading, refetch } = useQuery({
         queryFn: () => getData(),
         queryKey: ['jobs', user?.email]
     });

@@ -8,12 +8,10 @@ import Partners from "../../Shared/Partners";
 
 const AllJobs = () => {
     const axiosSecure = useAxiosSecure();
-    // const queryClient = useQueryClient();
-    
     const [search, setSearch] = useState('')
     const [searchText, setSearchText] = useState('')
 
-    const { data: jobs = [], isLoading, refetch, isError, error } = useQuery({
+    const { data: jobs = [], isLoading, refetch } = useQuery({
         queryFn: () => getData(),
         queryKey: ['jobs', {search}]
     });
@@ -53,7 +51,7 @@ const AllJobs = () => {
             </Helmet>
             <div className="container mx-auto text-center flex flex-col items-center">
                 
-                <h2 className="text-2xl dark:text-blue-400 text-black font-semibold mt-20 mb-14">Current Vacancies </h2>
+                <h2 className="text-2xl dark:text-grey-400  font-semibold mt-20 mb-14">Current Vacancies </h2>
                 <div className="overflow-x-auto mb-10 border rounded-xl p-4">
                     <div className="flex items-center justify-center gap-3">
                         <form onSubmit={handleSearch} className="flex items-center justify-center ">

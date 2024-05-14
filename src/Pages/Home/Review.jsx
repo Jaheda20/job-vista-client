@@ -21,7 +21,7 @@ const Review = () => {
                             
                             <Slide>
                             
-                                <div className="container flex flex-col w-full max-w-lg p-6 mx-auto divide-y rounded-md dark:divide-gray-300 dark:bg-gray-50 dark:text-gray-800 bg-white">
+                                <div className="container flex flex-col w-full max-w-lg p-6 mx-auto divide-y rounded-md dark:divide-gray-300 dark:bg-gray-50 text-black bg-white">
                                     <div className="flex justify-between p-4">
                                         <div className="flex space-x-4">
                                             <div>

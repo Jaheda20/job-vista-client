@@ -8,9 +8,9 @@ import useAuth from "../../../Hook/useAuth";
 const JobCategories = () => {
     const { user } = useAuth();
     const axiosSecure = useAxiosSecure();
-    const queryClient = useQueryClient();
+    // const queryClient = useQueryClient();
 
-    const { data: jobs = [], isLoading, refetch, isError, error } = useQuery({
+    const { data: jobs = [], isLoading } = useQuery({
         queryFn: () => getData(),
         queryKey: ['jobs', user?.email]
     });
