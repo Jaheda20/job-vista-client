@@ -26,7 +26,7 @@ const Banner = () => {
                         </div>
                         
                         <div className="h-36 px-20 py-4 bg-violet-400 bg-opacity-20 absolute bottom-0 w-full text-white flex justify-between items-center">
-                            <h1 className="text-4xl w-1/2 font-semibold">Your Next Career Awaits: <br />Explore Job Opportunities Now!</h1>
+                            <h1 className=" text-xl md:text-4xl w-1/2 font-semibold">Your Next Career Awaits: <br />Explore Job Opportunities Now!</h1>
                             <Link to={'/allJobs'}><button className="btn">Get Started</button></Link>
                         </div>
                     </div>

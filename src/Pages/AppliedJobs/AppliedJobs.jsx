@@ -29,23 +29,12 @@ const AppliedJobs = () => {
     </div>
 
 
-
-        // useEffect(() => {
-        //     getData()
-        // }, [user, filter])
-
-        // const getData = async () => {
-        //     const { data } = await axiosSecure(`/appliedJobs/${user?.email}?filter=${filter}`)
-        //     console.log(data)
-        //     setJobsApplied(data)
-        // }
-
         const MyDocument = ({ jobs }) => (
 
             <Document>
                 <Page size="A4">
                     <View style={styles.table}>
-                        {/* Heading row */}
+                        
                         <View style={styles.row}>
                             <View style={styles.column}>
                                 <Text style={[styles.cell, styles.header]}>Company Name</Text>

@@ -8,7 +8,7 @@ import useAuth from "../../../Hook/useAuth";
 const JobCategories = () => {
     const { user } = useAuth();
     const axiosSecure = useAxiosSecure();
-    // const queryClient = useQueryClient();
+    const queryClient = useQueryClient();
 
     const { data: jobs = [], isLoading } = useQuery({
         queryFn: () => getData(),
@@ -48,10 +48,12 @@ const JobCategories = () => {
 
                     <TabPanel>
                         <div className="grid grid-cols-1 md:grid-cols-3 mt-10 px-2 gap-8">
-                            {jobs.filter(j => j.jobCategory === 'Permanent').
+                            {
+                            jobs.filter(j => j.jobCategory === 'Permanent').
                                 map(job => <JobCards key={job._id} job={job}>
 
-                                </JobCards>)}
+                                </JobCards>)
+                                }
 
                         </div>
 

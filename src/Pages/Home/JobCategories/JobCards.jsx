@@ -73,5 +73,5 @@ const JobCards = ({ job }) => {
 export default JobCards;
 
 JobCards.propTypes={
-    job: PropTypes.array
+    job: PropTypes.object
 }

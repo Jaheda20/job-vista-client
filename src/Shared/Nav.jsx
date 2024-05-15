@@ -15,10 +15,9 @@ const Nav = () => {
         <li><NavLink className={({ isActive }) => isActive ? 'bg-fuchsia-100 dark:text-purple-900 font-bold' : "font-bold"} to="/">Home</NavLink></li>
         <li><NavLink className={({ isActive }) => isActive ? 'bg-fuchsia-100 dark:text-purple-900 font-bold' : "font-bold"} to="/allJobs">All Jobs</NavLink></li>
         <li><NavLink className={({ isActive }) => isActive ? 'bg-fuchsia-100 dark:text-purple-900 font-bold' : "font-bold"} to="/addJob">Add Jobs</NavLink></li>
-        <li><NavLink className={({ isActive }) => isActive ? 'bg-fuchsia-100 dark:text-purple-900 font-bold' : "font-bold"} to="/blog">Blogs</NavLink></li>
-        
-
+        <li><NavLink className={({ isActive }) => isActive ? 'bg-fuchsia-100 dark:text-purple-900 font-bold' : "font-bold"} to="/blog">Blogs</NavLink></li>       
     </>
+
 
     const handleToggle = e => {
         if (e.target.checked) {
@@ -111,7 +110,7 @@ const Nav = () => {
 
                     <label className="swap swap-rotate ml-4">
 
-                        {/* this hidden checkbox controls the state */}
+                        
                         <input type="checkbox" className="theme-controller" onChange={handleToggle} />
 
                         {/* sun icon */}
