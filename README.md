@@ -4,7 +4,8 @@ Welcome to JobVista, your ultimate destination for finding your dream job!
 
 # Category- Job Listing Website
 
-🚀 Live Site URL: JobVista
+🚀 Live Site URL: 
+https://earnest-pastelito-76dcda.netlify.app/
 
 # Features:
 
