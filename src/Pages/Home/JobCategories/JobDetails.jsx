@@ -4,7 +4,8 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import useAxiosSecure from "../../../Hook/useAxiosSecure";
 import { useState } from "react";
-
+import { LinkedinShareButton, FacebookShareButton } from "react-share";
+import { FaFacebook, FaLinkedin, FaShare } from "react-icons/fa";
 
 
 
@@ -66,6 +67,7 @@ const JobDetails = () => {
 
     }
 
+    const shareUrl = `https://earnest-pastelito-76dcda.netlify.app/job/${job._id}`
 
 
     return (
@@ -95,19 +97,32 @@ const JobDetails = () => {
                             <p className="mx-1 text-xs text-gray-600 dark:text-gray-300">Application Deadline: {new Date(deadline).toLocaleDateString()}</p>
                             <p className="text-xs font-medium text-blue-600 uppercase bg-blue-200 px-4 py-1 rounded-full dark:text-blue-400">No. of Application: {applicants_count}</p>
                         </div>
-                        <div className="mt-6 bg-fuchsia-100 py-6 px-4 w-72 rounded-md">
-                            <p className=" text-sm">Contact Person-</p>
-                            <div className="flex gap-3 mt-3 items-center">
-                            <img src={recruiter.photo} alt="" className="w-8 h-8 rounded-full" />
-                            <div>
-                                <p className=" text-sm">{recruiter.name}</p>
-                                <p className=" text-sm">{recruiter.email}</p>
-                            </div>
+                        <div className="flex items-center justify-between">
+                            <div className="mt-6 bg-fuchsia-100 py-6 px-4 w-72 rounded-md">
+                                <p className=" text-sm">Contact Person-</p>
+                                <div className="flex gap-3 mt-3 items-center">
+                                    <img src={recruiter.photo} alt="" className="w-8 h-8 rounded-full" />
+                                    <div>
+                                        <p className=" text-sm">{recruiter.name}</p>
+                                        <p className=" text-sm">{recruiter.email}</p>
+                                    </div>
+
+                                </div>
+
 
                             </div>
-                            
+                            <div className="flex">
+                                <p className="flex items-center bg-fuchsia-100 px-3 py-1 gap-2 mr-3 rounded-sm"><FaShare /> Share </p>
+                                <FacebookShareButton url={shareUrl} >                                   
+                                    <FaFacebook size={24} className="mr-2 text-blue-800"/>
+                                </FacebookShareButton>
+                                <LinkedinShareButton url={shareUrl}>
+                                    <FaLinkedin size={24} className="text-blue-800" />
+                                </LinkedinShareButton>
+                            </div>
 
                         </div>
+
 
 
                     </div>

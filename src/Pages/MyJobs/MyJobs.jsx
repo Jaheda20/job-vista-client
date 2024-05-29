@@ -15,8 +15,7 @@ const MyJobs = () => {
     const { user } = useAuth();
     const axiosSecure = useAxiosSecure();
     
-
-    
+ 
 
     const { data: jobs = [], isLoading, refetch } = useQuery({
         queryFn: () => getData(),

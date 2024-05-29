@@ -16,7 +16,7 @@ const UpdateJobs = () => {
     const { id } = useParams();
     
 
-  
+
     const {photo, jobTitle, company, jobCategory,
         minSalary, maxSalary,
         jobDescription,
