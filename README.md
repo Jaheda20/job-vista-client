@@ -1,6 +1,6 @@
 # JobVista - Your Job Search Companion
 
-Welcome to JobVista, your ultimate destination for finding your dream job!
+Welcome to JobVista, your ultimate destination for finding your dream job! On this site, recruiter can post jobs and job seekers can search and apply to their preferred jobs
 
 # Category- Job Listing Website
 
