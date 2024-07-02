@@ -27,7 +27,7 @@ Ensure you have Git, Node.js, and npm (Node Package Manager) installed on your m
 # Cloning the Repository
 1. Open your terminal.
 2. Clone the repository by typing git clone https://github.com/Jaheda20/job-vista-client.git
-3. Change your current directory to the project directory by typing cd metro-homes.
+3. Change your current directory to the project directory by typing cd job-vista.
 
 # Installing Dependencies
 For the Frontend
