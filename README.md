@@ -18,6 +18,9 @@ https://earnest-pastelito-76dcda.netlify.app/
 
 With JobVista, finding your next career opportunity has never been easier! Start your job search journey today.
 
+## Tools Used
+html, tailwind css, daisy ui, javascript, react js, framer motion, react icon, react hook form, swiper slider, react-date-picker, react toastify, react helmet, lottie react, react to pdf, react awsome reveal, axios, tanstack query, node.js, express.js, mongodb
+
 ## Getting Started
 Follow these steps to clone the project and run it locally:
 
